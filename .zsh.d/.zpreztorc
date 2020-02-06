@@ -38,6 +38,8 @@ zstyle ':prezto:load' pmodule \
   'spectrum' \
   'utility' \
   'completion' \
+  'history-substring-search' \
+  'autosuggestions' \
   'prompt'
 
 #
