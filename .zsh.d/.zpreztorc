@@ -40,6 +40,7 @@ zstyle ':prezto:load' pmodule \
   'completion' \
   'history-substring-search' \
   'autosuggestions' \
+  'git' \
   'prompt'
 
 #
