@@ -62,6 +62,6 @@ path=(${GOPATH}/bin(N-) ${path})
 #
 # kurolab
 #
-if [-d /mnt/berry_f/home ]; then
+if [ -d /mnt/berry/home ]; then
     source ${HOME}/dotfiles/.zsh.d/kurolab/.zshenv
 fi
