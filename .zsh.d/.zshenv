@@ -58,3 +58,10 @@ path=(${PERL_LOCAL_LIB_ROOT}/bin(N-) ${path})
 #
 export GOPATH=${HOME}/.go
 path=(${GOPATH}/bin(N-) ${path})
+
+#
+# kurolab
+#
+if [-d /mnt/berry_f/home ]; then
+    source ${HOME}/dotfiles/.zsh.d/kurolab/.zshenv
+fi
