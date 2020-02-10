@@ -35,6 +35,16 @@ path=(
 )
 
 #
+# Python
+#
+export PYTHONUSERBASE=${HOME}/.local
+if [ -f ${PYTHONUSERBASE}/bin/virtualenvwrapper.sh ]; then
+    export WORKON_HOME=$HOME/.virtualenvs
+    export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+    source ${PYTHONUSERBASE}/bin/virtualenvwrapper.sh
+fi
+
+#
 # go
 #
 if [[ -d ${HOME}/go ]]; then
