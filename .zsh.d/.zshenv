@@ -45,9 +45,16 @@ if [ -f ${PYTHONUSERBASE}/bin/virtualenvwrapper.sh ]; then
 fi
 
 #
-# go
+# Perl5
 #
-if [[ -d ${HOME}/go ]]; then
-    export GOPATH=${HOME}/.go
-    path=(${GOPATH}/bin(N-) ${path})
-fi
+export PERL5LIB="${HOME}/.perl5/lib/perl5"
+export PERL_LOCAL_LIB_ROOT="${HOME}/.perl5"
+export PERL_MB_OPT="--install_base ${PERL_LOCAL_LIB_ROOT}"
+export PERL_MM_OPT="INSTALL_BASE=${PERL_LOCAL_LIB_ROOT}"
+path=(${PERL_LOCAL_LIB_ROOT}/bin(N-) ${path})
+
+#
+# Go
+#
+export GOPATH=${HOME}/.go
+path=(${GOPATH}/bin(N-) ${path})
