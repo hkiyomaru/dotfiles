@@ -20,9 +20,3 @@ function peco-history-selection() {
 }
 zle -N peco-history-selection
 bindkey '^R' peco-history-selection
-
-#
-# history
-#
-HISTSIZE=500000
-SAVEHIST=500000
