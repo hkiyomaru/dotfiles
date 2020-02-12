@@ -71,3 +71,10 @@ path=(${GOPATH}/bin(N-) ${path})
 if [ -d /mnt/berry/home ]; then
     source ${HOME}/dotfiles/.zsh.d/.kurolab/.zshenv
 fi
+
+#
+# linuxbrew
+#
+if [ -d ${HOME}/.linuxbrew ]; then
+    eval $(~/.linuxbrew/bin/brew shellenv)
+fi
