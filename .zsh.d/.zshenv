@@ -32,12 +32,9 @@ path=(
   $HOME/.local/bin(N-/)
   $HOME/local/bin(N-/)
   $HOME/usr/bin(N-/)
-  /usr/local/bin(N-/)
-  /usr/local/sbin(N-/)
-  /usr/bin(N-/)
-  /usr/sbin(N-/)
-  /bin(N-/)
-  /sbin(N-/)
+  /usr/local/{bin,sbin}(N-/)
+  /usr/{bin,sbin}(N-/)
+  /{bin,sbin}(N-/)
 )
 
 #
@@ -78,3 +75,8 @@ fi
 if [ -d ${HOME}/.linuxbrew ]; then
     eval $(~/.linuxbrew/bin/brew shellenv)
 fi
+
+#
+# Others
+#
+setopt no_global_rcs  # avoid loading /etc/profile
