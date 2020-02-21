@@ -19,12 +19,6 @@ export LC_CTYPE=${LANG}
 export LC_ALL=${LANG}
 
 #
-# history
-#
-export HISTSIZE=500000
-export SAVEHIST=500000
-
-#
 # PATH
 #
 typeset -U path
