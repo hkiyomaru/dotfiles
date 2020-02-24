@@ -41,6 +41,12 @@ if [ -f ${PYTHONUSERBASE}/bin/virtualenvwrapper.sh ]; then
     source ${PYTHONUSERBASE}/bin/virtualenvwrapper.sh
 fi
 
+export PYENV_ROOT=${HOME}/.pyenv
+if [ -d ${PYENV_ROOT}/bin ]; then
+    path=(${PYENV_ROOT}/bin(N-) ${path})
+    eval "$(pyenv init -)"
+fi
+
 #
 # Perl5
 #
