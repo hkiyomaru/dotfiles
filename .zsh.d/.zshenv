@@ -79,4 +79,8 @@ fi
 #
 # Others
 #
-setopt no_global_rcs  # avoid loading /etc/profile
+case $(uname -s) in
+    Darwin)
+        setopt no_global_rcs  # avoid loading /etc/profile
+        ;;
+esac
