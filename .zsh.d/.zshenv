@@ -60,7 +60,9 @@ path=(${PERL_LOCAL_LIB_ROOT}/bin(N-) ${path})
 # Go
 #
 export GOROOT=${HOME}/.go
+export GOPATH=${HOME}/.go_projects
 path=(${GOROOT}/bin(N-) ${path})
+path=(${GOPATH}/bin(N-) ${path})
 
 #
 # kurolab
