@@ -47,6 +47,8 @@ if [ -d ${PYENV_ROOT}/bin ]; then
     eval "$(pyenv init -)"
 fi
 
+path=(${HOME}/.poetry/bin(N-) ${path})
+
 #
 # Perl5
 #
