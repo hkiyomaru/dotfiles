@@ -14,6 +14,10 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zaliases" ]]; then
   source "${ZDOTDIR:-$HOME}/.zaliases"
 fi
 
+if [ -d /mnt/berry/home ]; then
+  source ${HOME}/dotfiles/.zsh.d/.kurolab/.zaliases
+fi
+
 #
 # peco
 #
