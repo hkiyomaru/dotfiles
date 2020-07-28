@@ -20,19 +20,19 @@ fi
 # if ([[ "$TERM_PROGRAM" = 'iTerm.app' ]] && \
 #   zstyle -t ':prezto:module:tmux:iterm' integrate \
 # ); then
-if zstyle -t ':prezto:module:tmux:iterm' integrate; then
+if zstyle -t ':prezto:module:custom-tmux:iterm' integrate; then
   _tmux_iterm_integration='-CC'
 fi
 
 if [[ -z "$TMUX" && -z "$EMACS" && -z "$VIM" && -z "$INSIDE_EMACS" && "$TERM_PROGRAM" != "vscode" ]] && ( \
-  ( [[ -n "$SSH_TTY" ]] && zstyle -t ':prezto:module:tmux:auto-start' remote ) ||
-  ( [[ -z "$SSH_TTY" ]] && zstyle -t ':prezto:module:tmux:auto-start' local ) \
+  ( [[ -n "$SSH_TTY" ]] && zstyle -t ':prezto:module:custom-tmux:auto-start' remote ) ||
+  ( [[ -z "$SSH_TTY" ]] && zstyle -t ':prezto:module:custom-tmux:auto-start' local ) \
 ); then
   tmux start-server
 
   # Create a 'prezto' session if no session has been defined in tmux.conf.
   if ! tmux has-session 2> /dev/null; then
-    zstyle -s ':prezto:module:tmux:session' name tmux_session || tmux_session='prezto'
+    zstyle -s ':prezto:module:custom-tmux:session' name tmux_session || tmux_session='prezto'
     tmux \
       new-session -d -s "$tmux_session" \; \
       set-option -t "$tmux_session" destroy-unattached off &> /dev/null
