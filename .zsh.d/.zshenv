@@ -33,18 +33,20 @@ path=(
 #
 export PYTHONUSERBASE=${HOME}/.local
 if [ -f ${PYTHONUSERBASE}/bin/virtualenvwrapper.sh ]; then
-    export WORKON_HOME=$HOME/.virtualenvs
-    export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-    source ${PYTHONUSERBASE}/bin/virtualenvwrapper.sh
+  export WORKON_HOME=$HOME/.virtualenvs
+  export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+  source ${PYTHONUSERBASE}/bin/virtualenvwrapper.sh
 fi
 
 export PYENV_ROOT=${HOME}/.pyenv
 if [ -d ${PYENV_ROOT}/bin ]; then
-    path=(${PYENV_ROOT}/bin(N-) ${path})
-    eval "$(pyenv init -)"
+  path=(${PYENV_ROOT}/bin(N-) ${path})
+  eval "$(pyenv init -)"
 fi
 
-path=(${HOME}/.poetry/bin(N-) ${path})
+if [ -d ${HOME}/.poetry/bin ]; then
+  path=(${HOME}/.poetry/bin(N-) ${path})
+fi
 
 #
 # Perl5
@@ -72,21 +74,21 @@ path=(${HOME}/.nodebrew/current/bin ${path})
 # kurolab
 #
 if [ -d /mnt/berry/home ]; then
-    source ${HOME}/dotfiles/.zsh.d/.kurolab/.zshenv
+  source ${HOME}/dotfiles/.zsh.d/.kurolab/.zshenv
 fi
 
 #
 # linuxbrew
 #
 if [ -d ${HOME}/.linuxbrew ]; then
-    eval $(~/.linuxbrew/bin/brew shellenv)
+  eval $(~/.linuxbrew/bin/brew shellenv)
 fi
 
 #
 # Others
 #
 case $(uname -s) in
-    Darwin)
-        setopt no_global_rcs  # avoid loading /etc/profile
-        ;;
+  Darwin)
+    setopt no_global_rcs  # avoid loading /etc/profile
+    ;;
 esac
