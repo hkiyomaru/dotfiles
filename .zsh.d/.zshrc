@@ -1,9 +1,6 @@
 #
 # Executes commands at the start of an interactive session.
 #
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
@@ -11,12 +8,19 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 #
+# Alias
+#
+if [[ -s "${ZDOTDIR:-$HOME}/.zaliases" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zaliases"
+fi
+
+#
 # peco
 #
-function peco-history-selection() {
+peco-select-history() {
     BUFFER=$(history 1 | sort -k1,1nr | perl -ne 'BEGIN { my @lines = (); } s/^\s*\d+\*?\s*//; $in=$_; if (!(grep {$in eq $_} @lines)) { push(@lines, $in); print $in; }' | peco --query "$LBUFFER")
     CURSOR=${#BUFFER}
     zle reset-prompt
 }
-zle -N peco-history-selection
-bindkey '^R' peco-history-selection
+zle -N peco-select-history
+bindkey '^R' peco-select-history
