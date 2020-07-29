@@ -47,11 +47,11 @@ brew install perl
 
 brew install pyenv
 brew install pipenv
-brew install poetry
 
 # Databases.
 brew install mysql
-brew install mongodb
+brew tap mongodb/brew
+brew install mongodb-community
 
 # Misc.
 brew install tmux
