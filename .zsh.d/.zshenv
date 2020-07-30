@@ -66,11 +66,6 @@ path=(${GOROOT}/bin(N-) ${path})
 path=(${GOPATH}/bin(N-) ${path})
 
 #
-# Nodebrew
-#
-path=(${HOME}/.nodebrew/current/bin ${path})
-
-#
 # kurolab
 #
 if [ -d /mnt/berry/home ]; then
