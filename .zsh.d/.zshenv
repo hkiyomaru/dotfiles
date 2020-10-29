@@ -20,7 +20,6 @@ export LC_ALL=${LANG}
 #
 typeset -U path
 path=(
-  $HOME/.local/bin(N-/)
   $HOME/local/bin(N-/)
   $HOME/usr/bin(N-/)
   /usr/local/{bin,sbin}(N-/)
@@ -31,13 +30,6 @@ path=(
 #
 # Python
 #
-export PYTHONUSERBASE=${HOME}/.local
-if [ -f ${PYTHONUSERBASE}/bin/virtualenvwrapper.sh ]; then
-  export WORKON_HOME=$HOME/.virtualenvs
-  export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-  source ${PYTHONUSERBASE}/bin/virtualenvwrapper.sh
-fi
-
 export PYENV_ROOT=${HOME}/.pyenv
 if [ -d ${PYENV_ROOT}/bin ]; then
   path=(${PYENV_ROOT}/bin(N-) ${path})
@@ -78,6 +70,11 @@ fi
 if [ -d ${HOME}/.linuxbrew ]; then
   eval $(~/.linuxbrew/bin/brew shellenv)
 fi
+
+#
+# .local
+#
+path=($HOME/.local/bin(N-/) ${path})
 
 #
 # Others
