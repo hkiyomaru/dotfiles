@@ -30,6 +30,9 @@ path=(
 #
 # Python
 #
+export PYTHONUSERBASE=${HOME}/.local
+export WORKON_HOME=$HOME/.virtualenvs
+
 export PYENV_ROOT=${HOME}/.pyenv
 if [ -d ${PYENV_ROOT}/bin ]; then
   path=(${PYENV_ROOT}/bin(N-) ${path})
