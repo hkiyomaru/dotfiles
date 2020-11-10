@@ -1,4 +1,4 @@
-alias zreload='exec zsh -l'
+alias zr='exec zsh -l'
 
 if [ -d /mnt/berry/home ]; then
   source ${HOME}/dotfiles/.zsh.d/.kurolab/.zaliases
