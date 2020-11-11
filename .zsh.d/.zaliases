@@ -1,4 +1,5 @@
 alias zr='exec zsh -l'
+alias ssh='LC_PWD=$PWD ssh -o SendEnv=LC_PWD'
 
 if [ -d /mnt/berry/home ]; then
   source ${HOME}/dotfiles/.zsh.d/.kurolab/.zaliases

@@ -46,3 +46,11 @@ export LESSCHARSET='utf-8'
 if (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
+
+#
+# Automatic mv
+#
+if [[ -e "$LC_PWD" && "$(readlink -f $PWD)" != "$(readlink -f $LC_PWD)" ]]; then
+  cd "$LC_PWD"
+  unset LC_PWD
+fi
