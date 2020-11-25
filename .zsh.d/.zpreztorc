@@ -6,23 +6,8 @@
 # General
 #
 
-# Set case-sensitivity for completion, history lookup, etc.
-# zstyle ':prezto:*:*' case-sensitive 'yes'
-
 # Color output (auto set to 'no' on dumb terminals).
 zstyle ':prezto:*:*' color 'yes'
-
-# Add additional directories to load prezto modules from
-zstyle ':prezto:load' pmodule-dirs $HOME/.zprezto-contrib
-
-# Allow module overrides when pmodule-dirs causes module name collisions
-# zstyle ':prezto:load' pmodule-allow-overrides 'yes'
-
-# Set the Zsh modules to load (man zshmodules).
-# zstyle ':prezto:load' zmodule 'attr' 'stat'
-
-# Set the Zsh functions to load (man zshcontrib).
-# zstyle ':prezto:load' zfunction 'zargs' 'zmv'
 
 # Set the Prezto modules to load (browse modules).
 # The order matters.
@@ -33,11 +18,10 @@ zstyle ':prezto:load' pmodule \
   'directory' \
   'spectrum' \
   'utility' \
-  'syntax-highlighting' \
   'completion' \
+  'syntax-highlighting' \
   'autosuggestions' \
   'git' \
-  'custom-tmux' \
   'prompt'
 
 #
@@ -80,9 +64,6 @@ zstyle ':prezto:module:syntax-highlighting' pattern \
 #
 # Tmux
 #
-
-# Auto start a session when Zsh is launched in a SSH connection.
-# zstyle ':prezto:module:custom-tmux:auto-start' remote 'yes'
 
 # Integrate with iTerm2.
 # zstyle ':prezto:module:custom-tmux:iterm' integrate 'yes'
