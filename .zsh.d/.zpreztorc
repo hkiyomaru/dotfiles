@@ -22,7 +22,9 @@ zstyle ':prezto:load' pmodule \
   'syntax-highlighting' \
   'autosuggestions' \
   'git' \
-  'prompt'
+  'prompt' \
+  'archive' \
+  'gnu-utility'
 
 #
 # Editor
@@ -62,8 +64,11 @@ zstyle ':prezto:module:syntax-highlighting' pattern \
   'rm*-rf*' 'fg=white,bold,bg=red'
 
 #
-# Tmux
+# Auto Suggestion
 #
+zstyle ':prezto:module:autosuggestions:color' found ''
 
-# Integrate with iTerm2.
-# zstyle ':prezto:module:custom-tmux:iterm' integrate 'yes'
+#
+# GNU Utility
+#
+zstyle ':prezto:module:gnu-utility' prefix 'g'
