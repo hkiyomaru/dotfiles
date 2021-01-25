@@ -35,12 +35,28 @@ export WORKON_HOME=$HOME/.virtualenvs
 
 export PYENV_ROOT=${HOME}/.pyenv
 if [ -d ${PYENV_ROOT}/bin ]; then
-  path=(${PYENV_ROOT}/bin(N-) ${path})
+  path=(
+    ${PYENV_ROOT}/bin(N-)
+    ${path}
+  )
   eval "$(pyenv init -)"
 fi
 
 if [ -d ${HOME}/.poetry/bin ]; then
-  path=(${HOME}/.poetry/bin(N-) ${path})
+  path=(
+    ${HOME}/.poetry/bin(N-)
+    ${path}
+  )
+fi
+
+#
+# Rust
+#
+if [ -d ${HOME}/.cargo/bin ]; then
+  path=(
+    ${HOME}/.cargo/bin(N-)
+    ${path}
+  )
 fi
 
 #
