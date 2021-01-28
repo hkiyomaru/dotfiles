@@ -24,3 +24,10 @@ peco-select-history() {
 }
 zle -N peco-select-history
 bindkey '^R' peco-select-history
+
+#
+# anyenv
+#
+if [[ -d "${HOME}/.anyenv" ]]; then
+  eval "$(anyenv init -)"
+fi
