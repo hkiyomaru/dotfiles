@@ -28,6 +28,13 @@ path=(
 )
 
 #
+# kurolab
+#
+if [ -d /mnt/berry/home ]; then
+  source ${HOME}/dotfiles/.zsh.d/.kurolab/.zshenv
+fi
+
+#
 # Python
 #
 export PYTHONUSERBASE=${HOME}/.local
@@ -75,13 +82,6 @@ export GOROOT=${HOME}/.go
 export GOPATH=${HOME}/.go_projects
 path=(${GOROOT}/bin(N-) ${path})
 path=(${GOPATH}/bin(N-) ${path})
-
-#
-# kurolab
-#
-if [ -d /mnt/berry/home ]; then
-  source ${HOME}/dotfiles/.zsh.d/.kurolab/.zshenv
-fi
 
 #
 # linuxbrew
