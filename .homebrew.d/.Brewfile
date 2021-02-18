@@ -1,5 +1,7 @@
 # build tools
 brew "gcc"
+brew "make"
+brew "cmake"
 
 # shell
 brew "zsh"
@@ -9,8 +11,8 @@ brew "emacs"
 brew "vim"
 
 # langauge
-brew "python"
-brew "python@3.8"
+brew "python", link: false
+brew "python@3.8", link: true
 brew "ruby"
 brew "perl"
 brew "go"
@@ -22,6 +24,10 @@ brew "anyenv"
 
 # C library
 brew "libssh"
+
+# Compressor
+brew "gzip"
+brew "xz"
 
 # misc
 brew "git"       # revision control system
