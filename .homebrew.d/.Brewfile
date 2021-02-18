@@ -38,6 +38,7 @@ brew "curl"         # internet file retriever
 brew "htop"         # improved top
 brew "ripgrep"      # improved grep
 brew "procs"        # improved ps
+brew "colordiff"    # colored diff
 brew "peco"         # interactive filtering tool
 brew "tree"         # recursive directory listing command
 brew "watch"        # execute a program periodically
