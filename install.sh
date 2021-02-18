@@ -17,6 +17,14 @@ for f in ${ZDOTDIR%/}/.??*; do
 done
 
 #
+# homebrew
+#
+HOMEBREWDOTDIR=${DOTDIR%/}/.homebrew.d
+for f in ${HOMEBREWDOTDIR%/}/.??*; do
+    ln -snfv "$f" $HOME
+done
+
+#
 # tmux
 #
 TMUXDORDIR=${DOTDIR%/}/.tmux.d
