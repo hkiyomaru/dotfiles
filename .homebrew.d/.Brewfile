@@ -10,8 +10,11 @@ brew "vim"
 
 # langauge
 brew "python"
+brew "python@3.8"
 brew "ruby"
 brew "perl"
+brew "go"
+brew "rust"
 
 brew "cling"
 

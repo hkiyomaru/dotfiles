@@ -103,4 +103,3 @@ case $(uname -s) in
     setopt no_global_rcs  # avoid loading /etc/profile
     ;;
 esac
-source "$HOME/.cargo/env"
