@@ -1,8 +1,9 @@
 # ------------------------------------------
 # prezto
 # ------------------------------------------
-
-include "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+if [ -f "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
 
 # ------------------------------------------
 # alias
@@ -40,7 +41,7 @@ fi
 # anyenv
 # ------------------------------------------
 
-if [[ -d "${HOME}/.anyenv" ]]; then
+if [ -d "${HOME}/.anyenv" ]; then
   eval "$(anyenv init -)"
 fi
 

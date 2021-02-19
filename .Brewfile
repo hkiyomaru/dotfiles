@@ -68,7 +68,9 @@ brew "jq"           # command-line JSON processor
 brew "xsv"          # command-line CSV processor
 brew "imagemagick"  # image manipulator
 
+# ------------------------------------------
 # GUI macOS applications
+# ------------------------------------------
 tap "homebrew/cask"
 
 # input
