@@ -1,47 +1,23 @@
-#
-# Executes commands at the start of an interactive session.
-#
-
-# Source Prezto
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
-
-#
-# Alias
-#
-alias zr='exec zsh -l'
-alias ssh='LC_PWD=$PWD ssh -o SendEnv=LC_PWD'
-if [ -d /mnt/berry/home ]; then
-  alias brew="env -u LD_LIBRARY_PATH PATH=${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin:/usr/bin:/bin:/usr/sbin:/sbin brew"
-fi
-if [ -x "$(command -v bat)" ]; then
-  alias cat='bat'
-fi
-if [ -x "$(command -v exa)" ]; then
-  alias l='exa'
-  alias la='exa -a'
-  alias ll='exa -la'
-  alias ls='exa --color=auto'
-fi
-if [ -x "$(command -v procs)" ]; then
-  alias ps='procs'
-fi
-
-#
-# peco
-#
-peco-select-history() {
-  BUFFER=$(history 1 | sort -k1,1nr | perl -ne 'BEGIN { my @lines = (); } s/^\s*\d+\*?\s*//; $in=$_; if (!(grep {$in eq $_} @lines)) { push(@lines, $in); print $in; }' | peco --query "$LBUFFER")
-  CURSOR=${#BUFFER}
-  zle reset-prompt
+include () {
+  [[ -f "$1" ]] && source "$1"
 }
-zle -N peco-select-history
-bindkey '^R' peco-select-history
+
+#
+# prezto
+#
+include "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+
+#
+# alias
+#
+include "${HOME}/.zsh/alias.sh"
 
 #
 # anyenv
 #
-if [[ -d "${HOME}/.anyenv" ]]; then
-  eval "$(anyenv init -)"
-fi
+include "${HOME}/.zsh/anyenv.sh"
+
+#
+# misc
+#
+include "${HOME}/.zsh/misc.sh"
