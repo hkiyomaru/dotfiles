@@ -2,7 +2,7 @@
 # Executes commands at the start of an interactive session.
 #
 
-# Source Prezto.
+# Source Prezto
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
@@ -10,9 +10,14 @@ fi
 #
 # Alias
 #
-if [[ -s "${ZDOTDIR:-$HOME}/.zaliases" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zaliases"
+alias zr='exec zsh -l'
+alias ssh='LC_PWD=$PWD ssh -o SendEnv=LC_PWD'
+
+if [ -d /mnt/berry/home ]; then
+  # kurolab
+  alias brew="env -u LD_LIBRARY_PATH PATH=${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin:/usr/bin:/bin:/usr/sbin:/sbin brew"
 fi
+
 
 #
 # peco
