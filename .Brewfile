@@ -37,6 +37,9 @@ brew "tmux"         # terminal multiplexer
 brew "wget"         # internet file retriever
 brew "curl"         # internet file retriever
 brew "htop"         # improved top
+brew "bat"          # improved cat
+brew "fd"           # improved find
+brew "exa"          # improved ls
 brew "ripgrep"      # improved grep
 brew "procs"        # improved ps
 brew "colordiff"    # colored diff

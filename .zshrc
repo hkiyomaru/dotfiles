@@ -15,6 +15,18 @@ alias ssh='LC_PWD=$PWD ssh -o SendEnv=LC_PWD'
 if [ -d /mnt/berry/home ]; then
   alias brew="env -u LD_LIBRARY_PATH PATH=${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin:/usr/bin:/bin:/usr/sbin:/sbin brew"
 fi
+if [ -x "$(command -v bat)" ]; then
+  alias cat='bat'
+fi
+if [ -x "$(command -v exa)" ]; then
+  alias l='exa'
+  alias la='exa -a'
+  alias ll='exa -la'
+  alias ls='exa --color=auto'
+fi
+if [ -x "$(command -v procs)" ]; then
+  alias ps='procs'
+fi
 
 #
 # peco
