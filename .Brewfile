@@ -31,6 +31,7 @@ brew "xz"
 
 # misc
 brew "git"          # revision control system
+brew "git-delta"    # syntax-highlighting pager
 brew "docker"       # platform for developing apps
 brew "tmux"         # terminal multiplexer
 brew "wget"         # internet file retriever

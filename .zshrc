@@ -12,7 +12,9 @@ fi
 #
 alias zr='exec zsh -l'
 alias ssh='LC_PWD=$PWD ssh -o SendEnv=LC_PWD'
-alias brew="env -u LD_LIBRARY_PATH PATH=${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin:/usr/bin:/bin:/usr/sbin:/sbin brew"
+if [ -d /mnt/berry/home ]; then
+  alias brew="env -u LD_LIBRARY_PATH PATH=${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin:/usr/bin:/bin:/usr/sbin:/sbin brew"
+fi
 
 #
 # peco
