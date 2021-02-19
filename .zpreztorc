@@ -1,10 +1,6 @@
-#
-# Sets Prezto options.
-#
-
-#
-# General
-#
+# ------------------------------------------
+# general
+# ------------------------------------------
 
 # Color output (auto set to 'no' on dumb terminals).
 zstyle ':prezto:*:*' color 'yes'
@@ -26,9 +22,9 @@ zstyle ':prezto:load' pmodule \
   'archive' \
   'gnu-utility'
 
-#
-# Editor
-#
+# ------------------------------------------
+# editor
+# ------------------------------------------
 
 # Set the key mapping style to 'emacs' or 'vi'.
 zstyle ':prezto:module:editor' key-bindings 'emacs'
@@ -36,18 +32,18 @@ zstyle ':prezto:module:editor' key-bindings 'emacs'
 # Auto convert .... to ../..
 zstyle ':prezto:module:editor' dot-expansion 'yes'
 
-#
-# Prompt
-#
+# ------------------------------------------
+# prompt
+# ------------------------------------------
 
 # Set the prompt theme to load.
 # Setting it to 'random' loads a random theme.
 # Auto set to 'off' on dumb terminals.
 zstyle ':prezto:module:prompt' theme 'pure'
 
-#
-# Syntax Highlighting
-#
+# ------------------------------------------
+# syntax highlighting
+# ------------------------------------------
 
 # Set syntax highlighters.
 # By default, only the main highlighter is enabled.
@@ -63,12 +59,12 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
 zstyle ':prezto:module:syntax-highlighting' pattern \
   'rm*-rf*' 'fg=white,bold,bg=red'
 
-#
-# Auto Suggestion
-#
+# ------------------------------------------
+# auto suggestion
+# ------------------------------------------
 zstyle ':prezto:module:autosuggestions:color' found ''
 
-#
-# GNU Utility
-#
+# ------------------------------------------
+# GNU utility
+# ------------------------------------------
 zstyle ':prezto:module:gnu-utility' prefix 'g'

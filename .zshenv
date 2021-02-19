@@ -1,23 +1,21 @@
-#
-# Defines environment variables.
-#
-
 # Ensure that a non-login, non-interactive shell has a defined environment.
 if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
 
-#
-# LANG
-#
+# ------------------------------------------
+# language
+# ------------------------------------------
+
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US
 export LC_CTYPE=${LANG}
 export LC_ALL=${LANG}
 
-#
-# PATH
-#
+# ------------------------------------------
+# path
+# ------------------------------------------
+
 typeset -U path
 path=(
   $HOME/local/bin(N-/)
@@ -27,8 +25,8 @@ path=(
   /{bin,sbin}(N-/)
 )
 
+# kurolab
 if [ -d /mnt/berry/home ]; then
-  # kurolab
   if [[ $(uname -n) =~ "^baracuda" ]] || [[ $(uname -n) =~ "^moss" ]] || [[ $(uname -n) = "saffron" ]]; then
     export CUDA_HOME=/usr/local/cuda
     export CUDA_PATH=/usr/local/cuda
@@ -38,72 +36,47 @@ if [ -d /mnt/berry/home ]; then
   fi
 fi
 
-#
-# Python
-#
+# python
 export PYTHONUSERBASE=${HOME}/.local
 export WORKON_HOME=$HOME/.virtualenvs
-
 export PYENV_ROOT=${HOME}/.pyenv
 if [ -d ${PYENV_ROOT}/bin ]; then
-  path=(
-    ${PYENV_ROOT}/bin(N-)
-    ${path}
-  )
+  path=(${PYENV_ROOT}/bin(N-) ${path})
   eval "$(pyenv init -)"
 fi
-
 if [ -d ${HOME}/.poetry/bin ]; then
-  path=(
-    ${HOME}/.poetry/bin(N-)
-    ${path}
-  )
+  path=(${HOME}/.poetry/bin(N-) ${path})
 fi
 
-#
-# Rust
-#
+# rust
 if [ -d ${HOME}/.cargo/bin ]; then
-  path=(
-    ${HOME}/.cargo/bin(N-)
-    ${path}
-  )
+  path=(${HOME}/.cargo/bin(N-) ${path})
 fi
 
-#
-# Perl5
-#
+# perl5
 export PERL5LIB="${HOME}/.perl5/lib/perl5"
 export PERL_LOCAL_LIB_ROOT="${HOME}/.perl5"
 export PERL_MB_OPT="--install_base ${PERL_LOCAL_LIB_ROOT}"
 export PERL_MM_OPT="INSTALL_BASE=${PERL_LOCAL_LIB_ROOT}"
 path=(${PERL_LOCAL_LIB_ROOT}/bin(N-) ${path})
 
-#
-# Go
-#
+# go
 export GOROOT=${HOME}/.go
 export GOPATH=${HOME}/.go_projects
 path=(${GOROOT}/bin(N-) ${path})
 path=(${GOPATH}/bin(N-) ${path})
 
-#
 # linuxbrew
-#
 if [ -d ${HOME}/.linuxbrew ]; then
   eval $(~/.linuxbrew/bin/brew shellenv)
 fi
 
-#
-# .local
-#
+# misc
 path=($HOME/.local/bin(N-/) ${path})
 
-#
-# Others
-#
+# When mac, avoid loading /etc/profile
 case $(uname -s) in
   Darwin)
-    setopt no_global_rcs  # avoid loading /etc/profile
+    setopt no_global_rcs
     ;;
 esac

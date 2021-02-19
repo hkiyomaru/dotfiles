@@ -1,43 +1,38 @@
-#
-# Executes commands at login pre-zshrc.
-#
-
-#
-# Browser
-#
+# ------------------------------------------
+# browser
+# ------------------------------------------
 
 if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
 fi
 
-#
-# Editors
-#
+# ------------------------------------------
+# editors
+# ------------------------------------------
 
 export EDITOR='emacs'
 export VISUAL='emacs'
 export PAGER='less'
 
-#
+# ------------------------------------------
 # Language
-#
+# ------------------------------------------
 
 if [[ -z "$LANG" ]]; then
   export LANG='en_US.UTF-8'
 fi
 
-#
-# Paths
-#
+# ------------------------------------------
+# path
+# ------------------------------------------
 
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
 
-#
-# Less
-#
+# ------------------------------------------
+# less
+# ------------------------------------------
 
-# Set the default Less options.
 export LESS='-i -M -R -S -w'
 export LESSCHARSET='utf-8'
 
@@ -48,7 +43,8 @@ if (( $#commands[(i)lesspipe(|.sh)] )); then
 fi
 
 #
-# Automatic mv
+# automatic mv
+# NOTE: For LC_PWD, refer to the alias definition in .zshrc.
 #
 if [[ -e "$LC_PWD" && "$(readlink -f $PWD)" != "$(readlink -f $LC_PWD)" ]]; then
   cd "$LC_PWD"
