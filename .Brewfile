@@ -25,6 +25,7 @@ brew "ruby"
 brew "perl"
 brew "go"
 brew "rust"
+brew "haskell-stack"
 
 brew "cling"
 
