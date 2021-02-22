@@ -45,6 +45,7 @@ brew "xz"
 # misc
 # ------------------------------------------
 brew "git"          # revision control system
+brew "gh"           # Github CLI
 brew "git-delta"    # syntax-highlighting pager
 brew "docker"       # platform for developing apps
 brew "tmux"         # terminal multiplexer
