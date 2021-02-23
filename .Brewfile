@@ -24,7 +24,8 @@ brew "python@3.8", link: true
 brew "ruby"
 brew "perl"
 brew "go"
-brew "rust"
+
+brew "rustup-init"
 brew "haskell-stack"
 
 brew "cling"
@@ -107,3 +108,9 @@ cask "grammarly"
 cask "mendeley"
 cask "kindle"
 mas "Effortless", id: 1368722917
+
+# ------------------------------------------
+# Fonts
+# ------------------------------------------
+tap "homebrew/cask-fonts"
+cask "font-hack-nerd-font"
