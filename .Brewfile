@@ -4,6 +4,7 @@
 brew "gcc"
 brew "make"
 brew "cmake"
+brew "llvm"
 
 # ------------------------------------------
 # shell
@@ -36,6 +37,8 @@ brew "anyenv"
 # C library
 # ------------------------------------------
 brew "libssh"
+brew "libomp"
+brew "boost"
 
 # ------------------------------------------
 # compressor
