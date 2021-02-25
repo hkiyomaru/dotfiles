@@ -19,6 +19,7 @@ zstyle ':prezto:load' pmodule \
   'autosuggestions' \
   'git' \
   'prompt' \
+  'ssh' \
   'archive' \
   'gnu-utility'
 
