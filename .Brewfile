@@ -49,6 +49,7 @@ brew "xz"
 # ------------------------------------------
 # misc
 # ------------------------------------------
+brew "openssl"      # OpenSSL
 brew "git"          # revision control system
 brew "gh"           # Github CLI
 brew "git-delta"    # syntax-highlighting pager
