@@ -2,6 +2,9 @@
 	name = Hirokazu Kiyomaru
 	email = h.kiyomaru@gmail.com
 
+[init]
+	defaultBranch = main
+
 [core]
     pager = delta
 
