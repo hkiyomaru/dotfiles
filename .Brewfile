@@ -21,8 +21,8 @@ brew "neovim"
 # ------------------------------------------
 # langauge
 # ------------------------------------------
-brew "python", link: false
-brew "python@3.8", link: true
+brew "python"
+brew "python@3.8"
 brew "ruby"
 brew "perl"
 brew "go"
