@@ -112,6 +112,7 @@ cask "clipy"
 cask "grammarly"
 cask "mendeley"
 cask "kindle"
+cask "flux"
 mas "Effortless", id: 1368722917
 
 # ------------------------------------------
