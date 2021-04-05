@@ -23,6 +23,7 @@ brew "neovim"
 # ------------------------------------------
 brew "python"
 brew "python@3.8"
+brew "python@3.7"
 brew "ruby"
 brew "perl"
 brew "go"
