@@ -51,7 +51,7 @@ fi
 
 # NOTE: Refer to https://github.com/junegunn/fzf/blob/master/shell/key-bindings.zsh.
 
-if [ -x "$(command -v brew)" ]; then
+if [ -x "$(command -v fzf)" ]; then
   __fzfcmd() {
     [ -n "$TMUX_PANE" ] && { [ "${FZF_TMUX:-0}" != 0 ] || [ -n "$FZF_TMUX_OPTS" ]; } &&
       echo "fzf-tmux ${FZF_TMUX_OPTS:--d${FZF_TMUX_HEIGHT:-40%}} -- " || echo "fzf"
