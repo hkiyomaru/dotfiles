@@ -51,6 +51,7 @@ brew "xz"
 # ------------------------------------------
 # misc
 # ------------------------------------------
+brew "coreutils"    # GNU core utilities
 brew "openssl"      # OpenSSL
 brew "git"          # revision control system
 brew "gh"           # Github CLI
