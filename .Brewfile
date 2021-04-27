@@ -77,6 +77,9 @@ brew "nkf"          # kanji code converter
 brew "jq"           # command-line JSON processor
 brew "xsv"          # command-line CSV processor
 brew "imagemagick"  # image manipulator
+brew "black"        # Python code formatter
+brew "flake8"       # Python code checker
+brew "pre-commit"   # pre-commit hook manager
 
 # ------------------------------------------
 # GUI macOS applications
