@@ -44,9 +44,6 @@ if [ -d ${PYENV_ROOT}/bin ]; then
   path=(${PYENV_ROOT}/bin(N-) ${path})
   eval "$(pyenv init -)"
 fi
-if [ -d ${HOME}/.poetry/bin ]; then
-  path=(${HOME}/.poetry/bin(N-) ${path})
-fi
 
 # rust
 if [ -d ${HOME}/.cargo/bin ]; then
