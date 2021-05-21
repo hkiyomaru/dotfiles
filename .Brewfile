@@ -121,6 +121,7 @@ cask "grammarly"
 cask "mendeley"
 cask "kindle"
 cask "flux"
+cask "kap"
 mas "Effortless", id: 1368722917
 
 # ------------------------------------------
