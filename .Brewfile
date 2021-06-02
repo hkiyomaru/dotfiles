@@ -82,6 +82,7 @@ brew "xsv"          # command-line CSV processor
 brew "imagemagick"  # image manipulator
 brew "black"        # Python code formatter
 brew "flake8"       # Python code checker
+brew "isort"        # Python import optimizer
 brew "pre-commit"   # pre-commit hook manager
 
 # ------------------------------------------
