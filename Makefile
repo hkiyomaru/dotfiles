@@ -10,5 +10,5 @@ deploy-prezto:
 deploy-dotfiles:
 	@$(foreach val, $(DOTFILES), ln -sfnv $(abspath $(val)) $(HOME)/$(val);)
 
-init:
+update:
 	@$(foreach val, $(INIT_SCRIPTS), bash $(val);)
