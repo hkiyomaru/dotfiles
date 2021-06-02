@@ -80,6 +80,7 @@ brew "nkf"          # kanji code converter
 brew "jq"           # command-line JSON processor
 brew "xsv"          # command-line CSV processor
 brew "imagemagick"  # image manipulator
+brew "parallel"     # Command parallelization utility
 brew "black"        # Python code formatter
 brew "flake8"       # Python code checker
 brew "isort"        # Python import optimizer
