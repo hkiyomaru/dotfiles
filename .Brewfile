@@ -85,6 +85,7 @@ brew "black"        # Python code formatter
 brew "flake8"       # Python code checker
 brew "isort"        # Python import optimizer
 brew "pre-commit"   # pre-commit hook manager
+brew "silicon"      # source code image creator
 
 # ------------------------------------------
 # GUI macOS applications
