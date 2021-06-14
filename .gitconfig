@@ -7,7 +7,7 @@
 
 [core]
     pager = delta
-	excludesfile = /home/kiyomaru/.gitignore_global
+	excludesfile = ~/.gitignore_global
 
 [delta]
     plus-color = "#012800"
