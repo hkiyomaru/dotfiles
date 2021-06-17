@@ -13,6 +13,7 @@ zstyle ':prezto:load' pmodule \
   'history' \
   'directory' \
   'spectrum' \
+  'gnu-utility' \
   'utility' \
   'completion' \
   'syntax-highlighting' \
@@ -20,8 +21,7 @@ zstyle ':prezto:load' pmodule \
   'git' \
   'prompt' \
   'ssh' \
-  'archive' \
-  'gnu-utility'
+  'archive'
 
 # ------------------------------------------
 # editor

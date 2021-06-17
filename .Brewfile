@@ -54,7 +54,9 @@ brew "xz"
 # ------------------------------------------
 # misc
 # ------------------------------------------
+brew "binutils"     # GNU binary tools
 brew "coreutils"    # GNU core utilities
+brew "findutils"    # GNU find, locate, and xargs
 brew "openssl"      # OpenSSL
 brew "git"          # revision control system
 brew "gh"           # Github CLI
