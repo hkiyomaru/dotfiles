@@ -2,7 +2,7 @@
 ---
 name: KNP
 file_extensions:
-    - knp
+  - knp
 scope: source.knp
 
 contexts:

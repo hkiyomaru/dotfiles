@@ -1,14 +1,14 @@
-DOTFILES_IGNORE := .git .gitmodules
-DOTFILES := $(filter-out $(DOTFILES_IGNORE), $(wildcard .??*))
-UPDATE_SCRIPTS := $(wildcard ./etc/update/*.sh)
+DEPLOY_SCRIPT := ./etc/deploy.sh
+UPDATE_SCRIPT := ./etc/update.sh
 
-deploy: deploy-prezto deploy-dotfiles
+deploy: update-prezto
+	bash $(DEPLOY_SCRIPT)
 
-deploy-prezto:
+update: update-prezto
+	bash $(UPDATE_SCRIPT)
+
+update-prezto: update-repo
 	git submodule update --init --recursive
 
-deploy-dotfiles:
-	@$(foreach val, $(DOTFILES), ln -sfnv $(abspath $(val)) $(HOME)/$(val);)
-
-update:
-	@$(foreach val, $(UPDATE_SCRIPTS), bash $(val);)
+update-repo:
+	git pull origin main

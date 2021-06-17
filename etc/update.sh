@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+
+# homebrew
 if ! [ -x "$(command -v brew)" ]; then
   case "${OSTYPE}" in
   linux*)
@@ -12,5 +14,4 @@ if ! [ -x "$(command -v brew)" ]; then
     ;;
   esac
 fi
-
 brew bundle --global --verbose
