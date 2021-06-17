@@ -71,6 +71,8 @@ brew "fd"           # improved find
 brew "exa"          # improved ls
 brew "ripgrep"      # improved grep
 brew "procs"        # improved ps
+brew "dust"         # improved du
+brew "broot"        # improved tree
 brew "colordiff"    # colored diff
 brew "fzf"          # interactive filtering tool
 brew "tree"         # recursive directory listing command
@@ -88,6 +90,8 @@ brew "flake8"       # Python code checker
 brew "isort"        # Python import optimizer
 brew "pre-commit"   # pre-commit hook manager
 brew "silicon"      # source code image creator
+brew "tldr"         # collection of help pages
+brew "hyperfine"    # benchmarking tool
 
 # ------------------------------------------
 # GUI macOS applications
