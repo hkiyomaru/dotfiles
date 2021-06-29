@@ -59,6 +59,7 @@ brew "coreutils"    # GNU core utilities
 brew "findutils"    # GNU find, locate, and xargs
 brew "openssl"      # OpenSSL
 brew "git"          # revision control system
+brew "git-lfs"      # Git extension for versioning large files
 brew "gh"           # Github CLI
 brew "git-delta"    # syntax-highlighting pager
 brew "docker"       # platform for developing apps
