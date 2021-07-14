@@ -104,6 +104,7 @@ cask "google-japanese-ime"
 
 # browser
 cask "google-chrome"
+cask "firefox"
 
 # development tool
 cask "iterm2"
@@ -129,6 +130,7 @@ cask "alfred"
 cask "clipy"
 cask "grammarly"
 cask "mendeley"
+cask "papers"
 cask "kindle"
 cask "flux"
 cask "kap"
