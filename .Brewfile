@@ -105,6 +105,7 @@ cask "google-japanese-ime"
 # browser
 cask "google-chrome"
 cask "firefox"
+cask "microsoft-edge"
 
 # development tool
 cask "iterm2"
