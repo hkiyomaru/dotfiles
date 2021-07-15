@@ -57,12 +57,6 @@ export PERL_MB_OPT="--install_base ${PERL_LOCAL_LIB_ROOT}"
 export PERL_MM_OPT="INSTALL_BASE=${PERL_LOCAL_LIB_ROOT}"
 path=(${PERL_LOCAL_LIB_ROOT}/bin(N-) ${path})
 
-# go
-export GOROOT=${HOME}/.go
-export GOPATH=${HOME}/.go_projects
-path=(${GOROOT}/bin(N-) ${path})
-path=(${GOPATH}/bin(N-) ${path})
-
 # linuxbrew
 if [ -d ${HOME}/.linuxbrew ]; then
   eval $(~/.linuxbrew/bin/brew shellenv)
