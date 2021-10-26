@@ -93,6 +93,8 @@ brew "pre-commit"   # pre-commit hook manager
 brew "silicon"      # source code image creator
 brew "tldr"         # collection of help pages
 brew "hyperfine"    # benchmarking tool
+brew "jump"         # directory navigator
+brew "sphinx-doc"   # document generator
 
 # ------------------------------------------
 # GUI macOS applications
@@ -127,6 +129,7 @@ cask "slack"
 mas "LINE", id: 539883307
 
 # misc
+cask "adobe-acrobat-reader"
 cask "alfred"
 cask "clipy"
 cask "grammarly"
