@@ -28,6 +28,8 @@
     ;; initialize leaf-keywords.el
     (leaf-keywords-init)))
 
+(provide 'init)
+
 (leaf cus-edit
   :doc "tools for customizing Emacs and Lisp packages"
   :tag "builtin" "faces" "help"
@@ -215,8 +217,6 @@
            (highlight-indent-guides-auto-enabled . t)
            (highlight-indent-guides-responsive . t)
            (highlight-indent-guides-character . ?\|)))
-
-(provide 'init)
 
 ;; Local Variables:
 ;; indent-tabs-mode: nil
