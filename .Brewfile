@@ -95,6 +95,7 @@ brew "tldr"         # collection of help pages
 brew "hyperfine"    # benchmarking tool
 brew "jump"         # directory navigator
 brew "sphinx-doc"   # document generator
+brew "viu"          # command-line image viewer
 
 # ------------------------------------------
 # GUI macOS applications
