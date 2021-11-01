@@ -27,6 +27,12 @@ if [ -x "$(command -v exa)" ]; then
   alias ls='exa --color=auto'
 fi
 
+# p -> python3
+alias p='python3'
+
+# pp -> poetry run python
+alias pp='poetry run python'
+
 # kurolab
 if [ -d /mnt/berry/home ]; then
   alias brew="env -u LD_LIBRARY_PATH PATH=${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin:/usr/bin:/bin:/usr/sbin:/sbin brew"
