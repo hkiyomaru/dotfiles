@@ -30,12 +30,6 @@ fi
 # p -> python3
 alias p='python3'
 
-# pr -> poetry run
-alias pr='poetry run'
-
-# prp -> poetry run python
-alias prp='poetry run python'
-
 # kurolab
 if [ -d /mnt/berry/home ]; then
   alias brew="env -u LD_LIBRARY_PATH PATH=${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin:/usr/bin:/bin:/usr/sbin:/sbin brew"
