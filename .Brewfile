@@ -73,6 +73,7 @@ brew "exa"          # improved ls
 brew "ripgrep"      # improved grep
 brew "procs"        # improved ps
 brew "dust"         # improved du
+brew "duf"          # improved df
 brew "broot"        # improved tree
 brew "colordiff"    # colored diff
 brew "fzf"          # interactive filtering tool
