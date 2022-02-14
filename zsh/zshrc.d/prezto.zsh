@@ -30,25 +30,6 @@ zi snippet PZT::modules/gnu-utility
 zi ice svn
 zi snippet PZT::modules/utility
 
-# Loads and configures TAB completion and provides additional completions from the zsh-completions project.
-zi ice svn blockf atclone"git clone --recursive https://github.com/zsh-users/zsh-completions.git external"
-zi snippet PZT::modules/completion
-
-# Integrates zsh-syntax-highlighting into Prezto.
-zi ice svn atclone"git clone --recursive https://github.com/zsh-users/zsh-syntax-highlighting.git external"
-zi snippet PZT::modules/syntax-highlighting
-zstyle ':prezto:module:syntax-highlighting' highlighters \
-  'main' \
-  'brackets' \
-  'pattern' \
-  'line' \
-  'cursor' \
-  'root'
-
-# Integrates zsh-autosuggestions into Prezto, which implements the Fish shell's autosuggestions feature
-zi ice svn atclone"git clone --recursive https://github.com/zsh-users/zsh-autosuggestions.git external"
-zi snippet PZT::modules/autosuggestions
-
 # Enhances the Git distributed version control system
 zi ice svn
 zi snippet PZT::modules/git

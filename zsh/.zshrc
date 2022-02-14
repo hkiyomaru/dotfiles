@@ -14,6 +14,9 @@ ZSHRC="${HOME}/dotfiles/zsh/zshrc.d"
 # Prezto
 source "${ZSHRC}/prezto.zsh"
 
+# Plugins
+source "${ZSHRC}/plugin.zsh"
+
 # Theme
 source "${ZSHRC}/theme.zsh"
 
