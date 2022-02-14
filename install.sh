@@ -35,7 +35,7 @@ setup_symlink() {
     title "Creating symlinks"
 
     # zsh
-    for path in $DOTFILES/zsh/{.zi,.zlogin,.zprofile,.zshenv,.zshrc,.zpreztorc}; do
+    for path in $DOTFILES/zsh/{.zi,.zprofile,.zshenv,.zshrc}; do
         ln -sfnv ${path} ${HOME}
     done
 
