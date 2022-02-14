@@ -48,20 +48,64 @@ setup_symlink() {
 
 setup_homebrew() {
     title "Setting up Homebrew"
+
     if ! [ -x "$(command -v brew)" ]; then
-        case "${OSTYPE}" in
-        linux*)
+        info "Homebrew not installed. Installing."
+        case "$(uname -s)" in
+        Linux)
             git clone --depth 1 https://github.com/Homebrew/brew "${HOME}"/.linuxbrew/Homebrew
             mkdir -p "${HOME}"/.linuxbrew/bin
             ln -fs "${HOME}"/.linuxbrew/Homebrew/bin/brew "${HOME}"/.linuxbrew/bin
             eval $("${HOME}"/.linuxbrew/bin/brew shellenv)
             ;;
-        darwin*)
+        Darwin)
             /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+            ;;
+        *)
+            error "Only Linux and macOS are supported. Aborting."
+            exit 1
             ;;
         esac
     fi
+
     brew bundle
+}
+
+setup_shell() {
+    title "Configuring shell"
+
+    if [[ "$(basename "${SHELL}")" != "zsh" ]]; then
+        if ! [ -x "$(command -v brew)" ]; then
+            case "$(uname -s)" in
+            Linux)
+                # Use zsh installed in the system
+                zsh_path="$(command -v zsh)"
+                for p in $(where zsh); do
+                    if [[ -n ${p##$(realpath "${HOME}")/*} ]]; then
+                        zsh_path="${p}"
+                        break
+                    fi
+                done
+                chsh -s "${zsh_path}"
+                info "default shell changed to ${zsh_path}"
+                ;;
+            Darwin)
+                # Use zsh installed by Homebrew
+                [[ -n "$(command -v brew)" ]] && zsh_path="$(brew --prefix)/bin/zsh" || zsh_path="$(which zsh)"
+                if ! [[grep "${zsh_path}" "/etc/shells"]]; then
+                    info "Adding ${zsh_path} to /etc/shells"
+                    echo "$zsh_path" | sudo tee -a /etc/shells
+                fi
+                chsh -s "${zsh_path}"
+                info "default shell changed to ${zsh_path}"
+                ;;
+            *)
+                error "Only Linux and macOS are supported. Aborting."
+                exit 1
+                ;;
+            esac
+        fi
+    fi
 }
 
 case "$1" in
@@ -71,12 +115,16 @@ case "$1" in
     homebrew)
         setup_homebrew
         ;;
+    shell)
+        setup_shell
+        ;;
     all)
         setup_symlink
         setup_homebrew
+        setup_shell
         ;;
     *)
-        echo -e $"\nUsage: $(basename "$0") {link,homebrew|all}\n"
+        echo -e $"\nUsage: $(basename "$0") {link|homebrew|shell|all}\n"
         exit 1
         ;;
 esac
