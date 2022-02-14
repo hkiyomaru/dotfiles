@@ -31,6 +31,31 @@ success() {
     echo -e "${COLOR_GREEN}$1${COLOR_CLEAR}"
 }
 
+setup_symlink() {
+    title "Creating symlinks"
+
+    # zsh
+    for file in $DOTFILES/zsh/{.zlogin,.zprofile,.zshenv,.zshrc,.zpreztorc}; do
+        ln -sfnv ${file} ${HOME}
+    done
+
+    # emacs
+    mkdir -p ${HOME}/.emacs.d
+    ln -snfv ${DOTFILES}/.emacs.d/init.el ${HOME}/.emacs.d
+
+    # vim
+    ln -snfv ${DOTFILES}/.vimrc ${HOME}
+
+    # tmux
+    ln -snfv ${DOTFILES}/.tmux.conf ${HOME}
+
+    # others
+    mkdir -p ${HOME}/.config
+    for file in ${DOTFILES}/.config/*; do
+        ln -snfv ${file} ${HOME}/.config
+    done
+}
+
 setup_homebrew() {
     title "Setting up Homebrew"
     if ! [ -x "$(command -v brew)" ]; then
@@ -50,14 +75,18 @@ setup_homebrew() {
 }
 
 case "$1" in
+    link)
+        setup_symlink
+        ;;
     homebrew)
         setup_homebrew
         ;;
     all)
+        setup_symlink
         setup_homebrew
         ;;
     *)
-        echo -e $"\nUsage: $(basename "$0") {homebrew|all}\n"
+        echo -e $"\nUsage: $(basename "$0") {link,homebrew|all}\n"
         exit 1
         ;;
 esac
