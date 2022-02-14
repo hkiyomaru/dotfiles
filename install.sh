@@ -39,16 +39,6 @@ setup_symlink() {
         ln -sfnv ${file} ${HOME}
     done
 
-    # emacs
-    mkdir -p ${HOME}/.emacs.d
-    ln -snfv ${DOTFILES}/.emacs.d/init.el ${HOME}/.emacs.d
-
-    # vim
-    ln -snfv ${DOTFILES}/.vimrc ${HOME}
-
-    # tmux
-    ln -snfv ${DOTFILES}/.tmux.conf ${HOME}
-
     # others
     mkdir -p ${HOME}/.config
     for file in ${DOTFILES}/.config/*; do
