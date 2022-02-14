@@ -35,14 +35,14 @@ setup_symlink() {
     title "Creating symlinks"
 
     # zsh
-    for file in $DOTFILES/zsh/{.zlogin,.zprofile,.zshenv,.zshrc,.zpreztorc}; do
-        ln -sfnv ${file} ${HOME}
+    for path in $DOTFILES/zsh/{.zi,.zlogin,.zprofile,.zshenv,.zshrc,.zpreztorc}; do
+        ln -sfnv ${path} ${HOME}
     done
 
     # others
     mkdir -p ${HOME}/.config
-    for file in ${DOTFILES}/.config/*; do
-        ln -snfv ${file} ${HOME}/.config
+    for path in ${DOTFILES}/.config/*; do
+        ln -snfv ${path} ${HOME}/.config
     done
 }
 
