@@ -58,6 +58,7 @@ brew "binutils"     # GNU binary tools
 brew "coreutils"    # GNU core utilities
 brew "findutils"    # GNU find, locate, and xargs
 brew "openssl"      # OpenSSL
+brew "subversion"   # revision control system
 brew "git"          # revision control system
 brew "git-lfs"      # Git extension for versioning large files
 brew "gh"           # Github CLI
