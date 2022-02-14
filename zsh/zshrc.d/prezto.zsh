@@ -1,6 +1,8 @@
 # ------------------------------------------
 # Prezto
 # ------------------------------------------
+zstyle ':prezto:*:*' color 'yes'
+
 # Sets general shell options and defines environment variables.
 zi snippet PZT::modules/environment
 
