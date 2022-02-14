@@ -1,7 +1,7 @@
 # dotfiles
 
 ```shell
-./install.sh all
+./update.sh && ./install.sh all
 ```
 ## Deploy dotfiles
 
