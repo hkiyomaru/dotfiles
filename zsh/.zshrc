@@ -1,4 +1,12 @@
 # ------------------------------------------
+# zi: https://z-shell.pages.dev/
+# ------------------------------------------
+zi_home="${HOME}/.zi"
+source "${zi_home}/bin/zi.zsh"
+autoload -Uz _zi
+(( ${+_comps} )) && _comps[zi]=_zi
+
+# ------------------------------------------
 # prezto
 # ------------------------------------------
 if [ -f "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]; then
