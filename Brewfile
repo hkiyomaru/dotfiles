@@ -144,7 +144,7 @@ mas "Effortless", id: 1368722917
 mas "Craft", id: 1487937127
 
 # ------------------------------------------
-# Fonts
+# fonts
 # ------------------------------------------
 tap "homebrew/cask-fonts"
 cask "font-hack-nerd-font"

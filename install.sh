@@ -31,5 +31,36 @@ success() {
     echo -e "${COLOR_GREEN}$1${COLOR_CLEAR}"
 }
 
+setup_homebrew() {
+    title "Setting up Homebrew"
+    if ! [ -x "$(command -v brew)" ]; then
+        case "${OSTYPE}" in
+        linux*)
+            git clone --depth 1 https://github.com/Homebrew/brew "${HOME}"/.linuxbrew/Homebrew
+            mkdir -p "${HOME}"/.linuxbrew/bin
+            ln -fs "${HOME}"/.linuxbrew/Homebrew/bin/brew "${HOME}"/.linuxbrew/bin
+            eval $("${HOME}"/.linuxbrew/bin/brew shellenv)
+            ;;
+        darwin*)
+            /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+            ;;
+        esac
+    fi
+    brew bundle
+}
+
+case "$1" in
+    homebrew)
+        setup_homebrew
+        ;;
+    all)
+        setup_homebrew
+        ;;
+    *)
+        echo -e $"\nUsage: $(basename "$0") {homebrew|all}\n"
+        exit 1
+        ;;
+esac
+
 echo -e
 success "Done."
