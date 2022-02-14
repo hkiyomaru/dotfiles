@@ -33,7 +33,7 @@ zi ice svn blockf atclone"git clone --recursive https://github.com/zsh-users/zsh
 zi snippet PZT::modules/completion
 
 # Integrates zsh-syntax-highlighting into Prezto.
-zi ice svn blockf atclone"git clone --recursive https://github.com/zsh-users/zsh-syntax-highlighting.git external"
+zi ice svn atclone"git clone --recursive https://github.com/zsh-users/zsh-syntax-highlighting.git external"
 zi snippet PZT::modules/syntax-highlighting
 zstyle ':prezto:module:syntax-highlighting' highlighters \
   'main' \
@@ -44,7 +44,7 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
   'root'
 
 # Integrates zsh-autosuggestions into Prezto, which implements the Fish shell's autosuggestions feature
-zi ice svn blockf atclone"git clone --recursive https://github.com/zsh-users/zsh-autosuggestions.git external"
+zi ice svn atclone"git clone --recursive https://github.com/zsh-users/zsh-autosuggestions.git external"
 zi snippet PZT::modules/autosuggestions
 
 # Enhances the Git distributed version control system
