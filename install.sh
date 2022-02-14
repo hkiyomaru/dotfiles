@@ -175,7 +175,7 @@ case "$1" in
     link)
         setup_symlink
         ;;
-    homebrew)
+    brew)
         setup_homebrew
         ;;
     shell)
@@ -191,7 +191,7 @@ case "$1" in
         setup_macos
         ;;
     *)
-        echo -e $"\n${COLOR_GREEN}Usage: ${COLOR_CLEAR}$(basename "$0") {link|homebrew|shell|macos|all}\n"
+        echo -e $"\n${COLOR_GREEN}Usage: ${COLOR_CLEAR}$(basename "$0") {link|brew|shell|macos|all}\n"
         exit 1
         ;;
 esac

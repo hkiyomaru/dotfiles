@@ -1,17 +1,28 @@
 # dotfiles
 
-## Deployment
-
-Dotfiles are deployed in the home directory by:
+```shell
+./install.sh all
+```
+## Deploy dotfiles
 
 ```
-$ make deploy
+./install.sh link
 ```
 
-## Initialization/Update
-
-Applications are downloaded, installed, and updated by:
+## Update Homebrew dependencies
 
 ```
-$ make update
+./install.sh brew
+```
+
+## Setup the login shell
+
+```
+./install.sh shell
+```
+
+## Setup macOS
+
+```
+./install.sh macos
 ```
