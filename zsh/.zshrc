@@ -1,30 +1,30 @@
 # ------------------------------------------
-# ZI (https://z-shell.pages.dev/)
+# zinit
 # ------------------------------------------
-ZI="${HOME}/.zi"
-source "${ZI}/bin/zi.zsh"
-autoload -Uz _zi
-(( ${+_comps} )) && _comps[zi]=_zi
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+source "${ZINIT_HOME}/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
 # ------------------------------------------
-# Load zshrc components
+# Load ZSHRCD components
 # ------------------------------------------
-ZSHRC="${HOME}/dotfiles/zsh/zshrc.d"
+ZSHRCD="${HOME}/dotfiles/zsh/zshrc.d"
 
 # Prezto
-source "${ZSHRC}/prezto.zsh"
+source "${ZSHRCD}/prezto.zsh"
 
 # Plugins
-source "${ZSHRC}/plugin.zsh"
+source "${ZSHRCD}/plugin.zsh"
 
 # Theme
-source "${ZSHRC}/theme.zsh"
+source "${ZSHRCD}/theme.zsh"
 
 # Alias
-source "${ZSHRC}/alias.zsh"
+source "${ZSHRCD}/alias.zsh"
 
 # Key binding
-source "${ZSHRC}/keybinding.zsh"
+source "${ZSHRCD}/keybinding.zsh"
 
 # Misc.
-source "${ZSHRC}/misc.zsh"
+source "${ZSHRCD}/misc.zsh"
