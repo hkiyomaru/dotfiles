@@ -108,6 +108,69 @@ setup_shell() {
     fi
 }
 
+setup_macos() {
+    title "Configuring macOS"
+
+    if [[ "$(uname -s)" == "Darwin" ]]; then
+        info "General: Disable the sound effect on boot"
+        sudo nvram SystemAudioVolume=" "
+
+        info "General: Show scrollbars"
+        defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+
+        info "General: Enable subpixel font rendering on non-Apple LCDs"
+        defaults write NSGlobalDomain AppleFontSmoothing -int 2
+
+        info "General: Set a blazingly fast keyboard repeat rate"
+        defaults write NSGlobalDomain KeyRepeat -int 1
+        
+        info "General: Set a shorter delay until key repeat"
+        defaults write NSGlobalDomain InitialKeyRepeat -int 15
+
+        info "Dock: Put the Dock on the left of the screen"
+        defaults write com.apple.dock "orientation" -string "left"
+
+        info "Dock: Make the icon size smaller"
+        defaults write com.apple.dock "tilesize" -int "36"
+
+        info "Dock: Speed up showing and hiding"
+        defaults write com.apple.dock autohide-delay -float 0
+        defaults write com.apple.dock autohide-time-modifier -float 1.0
+
+        info "Dock: Speed up moving apps across desktops"
+        defaults write com.apple.dock workspaces-edge-delay -float 0.2
+
+        info "Dock: Make the icon on the Dock to semi-transparent after hiding the app"
+        defaults write com.apple.dock showhidden -bool true
+
+        info "Mission Control: speed up animation"
+        defaults write com.apple.dock expose-animation-duration -float 0.1
+
+        info "Finder: Suppress creating .DS_Store in external storage"
+        defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+        info "Finder: Disble animations"
+        defaults write com.apple.finder DisableAllAnimations -boolean true
+
+        info "Finder: Show all filename extensions"
+        defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+        info "Finder: Show hidden files by default"
+        defaults write com.apple.Finder AppleShowAllFiles -bool true
+
+        info "Finder: Use current directory as default search scope"
+        defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+        info "Finder: Show the path bar"
+        defaults write com.apple.finder ShowPathbar -bool true
+
+        info "Finder: Show the status bar"
+        defaults write com.apple.finder ShowStatusBar -bool true
+    else
+        warning "macOS not detected. Skipping."
+    fi
+}
+
 case "$1" in
     link)
         setup_symlink
@@ -118,13 +181,17 @@ case "$1" in
     shell)
         setup_shell
         ;;
+    macos)
+        setup_macos
+        ;;
     all)
         setup_symlink
         setup_homebrew
         setup_shell
+        setup_macos
         ;;
     *)
-        echo -e $"\nUsage: $(basename "$0") {link|homebrew|shell|all}\n"
+        echo -e $"\n${COLOR_GREEN}Usage: ${COLOR_CLEAR}$(basename "$0") {link|homebrew|shell|macos|all}\n"
         exit 1
         ;;
 esac
