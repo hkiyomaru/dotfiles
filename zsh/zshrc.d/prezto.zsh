@@ -36,7 +36,3 @@ zi snippet PZT::modules/git
 
 # Provides for an easier use of SSH by setting up ssh-agent.
 zi snippet PZT::modules/ssh
-
-# Provides functions to create, list, and extract archives.
-zi ice svn as"null"
-zi snippet PZT::modules/archive
