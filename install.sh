@@ -83,7 +83,7 @@ setup_shell() {
     title "Configuring shell"
 
     if [[ "$(basename "${SHELL}")" != "zsh" ]]; then
-        if ! [ -x "$(command -v brew)" ]; then
+        if [ -x "$(command -v brew)" ]; then
             case "$(uname -s)" in
             Linux)
                 # Use zsh installed in the system
@@ -94,16 +94,20 @@ setup_shell() {
                         break
                     fi
                 done
+
+                info "Added ${zsh_path} to /etc/shells"
+                echo "$zsh_path" | sudo tee -a /etc/shells
+                
                 chsh -s "${zsh_path}"
                 info "default shell changed to ${zsh_path}"
                 ;;
             Darwin)
                 # Use zsh installed by Homebrew
                 zsh_path="$(brew --prefix)/bin/zsh"
-                if ! [[ grep -q "${zsh_path}" /etc/shells ]]; then
-                    info "Adding ${zsh_path} to /etc/shells"
-                    echo "$zsh_path" | sudo tee -a /etc/shells
-                fi
+
+                echo "$zsh_path" | sudo tee -a /etc/shells
+                info "Added ${zsh_path} to /etc/shells"
+                
                 chsh -s "${zsh_path}"
                 info "default shell changed to ${zsh_path}"
                 ;;
