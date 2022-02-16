@@ -100,7 +100,7 @@ setup_shell() {
             Darwin)
                 # Use zsh installed by Homebrew
                 [[ -n "$(command -v brew)" ]] && zsh_path="$(brew --prefix)/bin/zsh" || zsh_path="$(which zsh)"
-                if ! [[grep "${zsh_path}" "/etc/shells"]]; then
+                if ! [[ grep "${zsh_path}" "/etc/shells" ]]; then
                     info "Adding ${zsh_path} to /etc/shells"
                     echo "$zsh_path" | sudo tee -a /etc/shells
                 fi
