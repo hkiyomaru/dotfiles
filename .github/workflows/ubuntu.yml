@@ -1,0 +1,13 @@
+name: Test on Ubuntu
+
+on: [push]
+
+jobs:
+  ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Clone this repository
+      run: git clone --depth 1 https://github.com/hkiyomaru/dotfiles.git
+    - name: Install
+      run: ./install.sh all
+      working-directory: ./dotfiles
