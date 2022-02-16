@@ -3,10 +3,11 @@ name: Test on macOS
 on: [push]
 
 jobs:
-  runs-on: macos-latest
-  steps:
-  - name: Clone this repository
-    run: git clone --depth 1 https://github.com/hkiyomaru/dotfiles.git
-  - name: Install
-    run: ./install.sh all
-    working-directory: ./dotfiles
+  macos:
+    runs-on: macos-latest
+    steps:
+    - name: Clone this repository
+      run: git clone --depth 1 https://github.com/hkiyomaru/dotfiles.git
+    - name: Install
+      run: ./install.sh all
+      working-directory: ./dotfiles
