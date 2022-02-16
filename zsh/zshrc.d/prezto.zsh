@@ -7,9 +7,9 @@ zstyle ':prezto:*:*' color 'yes'
 zinit snippet PZT::modules/environment
 
 # Sets editor specific key bindings options and variables.
-zinit snippet PZT::modules/editor
 zstyle ':prezto:module:editor' key-bindings 'emacs'
 zstyle ':prezto:module:editor' dot-expansion 'yes'
+zinit snippet PZT::modules/editor
 
 # Sets history options and defines history aliases.
 HISTFILE="${HOME}/.zhistory"
