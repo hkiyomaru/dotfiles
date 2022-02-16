@@ -1,7 +1,8 @@
 # ------------------------------------------
-# alias
+# Misc
 # ------------------------------------------
-# Anyenv
-if [ -d "${HOME}/.anyenv" ]; then
-  eval "$(anyenv init -)"
-fi
+# fzf
+[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
+
+# anyenv
+[ -d "${HOME}/.anyenv" ] && eval "$(anyenv init -)"

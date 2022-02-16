@@ -1,9 +1,13 @@
 # ------------------------------------------
-# Prezto
+# Plugin
 # ------------------------------------------
-zstyle ':prezto:*:*' color 'yes'
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+source "${ZINIT_HOME}/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
 # Sets general shell options and defines environment variables.
+zstyle ':prezto:*:*' color 'yes'
 zinit snippet PZT::modules/environment
 
 # Sets editor specific key bindings options and variables.
@@ -36,3 +40,19 @@ zinit snippet PZT::modules/git
 
 # Provides for an easier use of SSH by setting up ssh-agent.
 zinit snippet PZT::modules/ssh
+
+# Additional completion definitions for Zsh.
+zinit ice wait lucid
+zinit light zsh-users/zsh-completions
+
+# Fish-like fast/unobtrusive autosuggestions for zsh.
+zinit ice wait lucid atload"_zsh_autosuggest_start"
+zinit light zsh-users/zsh-autosuggestions
+
+# Fish shell-like syntax highlighting for Zsh.
+zinit ice wait lucid
+zinit light zsh-users/zsh-syntax-highlighting
+
+# Pretty, minimal and fast ZSH prompt
+zinit ice lucid pick"/dev/null" multisrc"{async,pure}.zsh" nocd atload"!prompt_pure_precmd"
+zinit light sindresorhus/pure

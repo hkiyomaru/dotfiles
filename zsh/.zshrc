@@ -1,30 +1,10 @@
-# ------------------------------------------
-# zinit
-# ------------------------------------------
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-source "${ZINIT_HOME}/zinit.zsh"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-
-# ------------------------------------------
-# Load ZSHRCD components
-# ------------------------------------------
-ZSHRCD="${HOME}/dotfiles/zsh/zshrc.d"
-
-# Prezto
-source "${ZSHRCD}/prezto.zsh"
+ZRCD="${HOME}/dotfiles/zsh/zshrc.d"
 
 # Plugins
-source "${ZSHRCD}/plugin.zsh"
-
-# Theme
-source "${ZSHRCD}/theme.zsh"
+source "${ZRCD}/plugins.zsh"
 
 # Alias
-source "${ZSHRCD}/alias.zsh"
-
-# Key binding
-source "${ZSHRCD}/keybinding.zsh"
+source "${ZRCD}/alias.zsh"
 
 # Misc.
-source "${ZSHRCD}/misc.zsh"
+source "${ZRCD}/misc.zsh"
