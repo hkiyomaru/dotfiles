@@ -62,9 +62,12 @@ export GOPATH=$HOME/.go
 path=(${GOPATH}/bin(N-) ${path})
 
 # linuxbrew
-if [ -d ${HOME}/.linuxbrew ]; then
-  eval $(~/.linuxbrew/bin/brew shellenv)
-fi
+for prefix in "${HOME}/.linuxbrew" "/usr/local" "/opt/homebrew"; do
+  if [[ -x "${prefix}/bin/brew" ]]; then
+    eval $("${prefix}/bin/brew" shellenv)
+    break
+  fi
+done
 
 # misc
 path=($HOME/.local/bin(N-/) ${path})
