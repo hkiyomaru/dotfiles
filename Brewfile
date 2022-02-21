@@ -142,6 +142,7 @@ cask "papers"
 cask "kindle"
 cask "flux"
 cask "kap"
+cask "dropbox"
 mas "Effortless", id: 1368722917
 mas "Craft", id: 1487937127
 
