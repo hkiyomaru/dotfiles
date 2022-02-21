@@ -1,3 +1,3 @@
-[submodule "zsh/zinit.git"]
-	path = zsh/zinit.git
+[submodule "zinit.git"]
+	path = zinit.git
 	url = https://github.com/zdharma-continuum/zinit.git

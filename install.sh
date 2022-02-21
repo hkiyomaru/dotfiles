@@ -37,10 +37,10 @@ setup_symlink() {
     # zinit
     zinit_home="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
     mkdir -p "$(dirname ${zinit_home})"
-    ln -sfnv "${DOTFILES}/zsh/zinit.git" "${zinit_home}"
+    ln -sfnv "${DOTFILES}/zinit.git" "${zinit_home}"
 
     # zsh
-    for path in $DOTFILES/zsh/{.zprofile,.zshenv,.zshrc}; do
+    for path in $DOTFILES/{.zprofile,.zshenv,.zshrc}; do
         ln -sfnv ${path} ${HOME}
     done
 
