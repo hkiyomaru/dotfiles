@@ -98,6 +98,7 @@ brew "hyperfine"    # benchmarking tool
 brew "jump"         # directory navigator
 brew "sphinx-doc"   # document generator
 brew "viu"          # command-line image viewer
+brew "mackup"       # sync Mac's application settings
 
 # ------------------------------------------
 # GUI macOS applications
