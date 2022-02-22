@@ -31,14 +31,15 @@ zinit snippet PZT::modules/spectrum
 zinit snippet PZT::modules/gnu-utility
 
 # Defines general aliases and functions.
-zinit ice svn
+zinit ice wait lucid  svn
 zinit snippet PZT::modules/utility
 
 # Enhances the Git distributed version control system
-zinit ice svn
+zinit ice wait lucid svn
 zinit snippet PZT::modules/git
 
 # Provides for an easier use of SSH by setting up ssh-agent.
+zinit ice wait lucid
 zinit snippet PZT::modules/ssh
 
 # Additional completion definitions for Zsh.
