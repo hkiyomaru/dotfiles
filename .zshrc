@@ -66,12 +66,12 @@ alias zr='exec zsh -l'
 alias ssh='LC_PWD=$PWD ssh -o SendEnv=LC_PWD'
 
 # cat -> bat
-if [ -x "$(command -v bat)" ]; then
+if [[ -x "$(command -v bat)" ]]; then
   alias cat='bat'
 fi
 
 # ls -> exa
-if [ -x "$(command -v exa)" ]; then
+if [[ -x "$(command -v exa)" ]]; then
   alias l='exa'
   alias la='exa -a'
   alias ll='exa -la'
@@ -90,7 +90,7 @@ fi
 # Misc
 # ------------------------------------------
 # fzf
-[ -f "${HOME}/.fzf.zsh" ] && source $HOME/.fzf.zsh
+[[ -f "${HOME}/.fzf.zsh" ]] && source $HOME/.fzf.zsh
 
 # anyenv
-[ -x "$(command -v anyenv)" ] && eval "$(anyenv init -)"
+[[ -x "$(command -v anyenv)" && -d "${HOME}/.anyenv" ]] && eval "$(anyenv init -)"
