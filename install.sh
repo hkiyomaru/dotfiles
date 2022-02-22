@@ -32,23 +32,27 @@ success() {
 }
 
 setup_symlink() {
-    title "Creating symlinks"
+    title "Creating symlinks"    
 
     # zinit
     zinit_home="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
     mkdir -p "$(dirname ${zinit_home})"
     ln -sfnv "${DOTFILES}/zinit.git" "${zinit_home}"
 
-    # zsh
-    for path in $DOTFILES/{.zprofile,.zshenv,.zshrc}; do
+    # .zshenv, .zprofile, and .zshrc
+    for path in ${DOTFILES}/{.zshenv,.zprofile,.zshrc}; do
         ln -sfnv ${path} ${HOME}
     done
 
-    # others
+    # .config
     mkdir -p ${HOME}/.config
     for path in ${DOTFILES}/.config/*; do
         ln -snfv ${path} ${HOME}/.config
     done
+
+    # .mackup.cfg
+    ln -sfnv ${DOTFILES}/.mackup.cfg ${HOME}
+    [ -x "$(command -v mackup)" ] && mackup restore
 }
 
 setup_homebrew() {
