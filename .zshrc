@@ -28,7 +28,9 @@ zinit snippet PZT::modules/directory
 zinit snippet PZT::modules/spectrum
 
 # Provides for the interactive use of GNU utilities on BSD systems.
-zinit snippet PZT::modules/gnu-utility
+if [[ "$OSTYPE" == darwin* ]]; then
+  zinit snippet PZT::modules/gnu-utility
+fi
 
 # Defines general aliases and functions.
 zinit ice wait lucid  svn

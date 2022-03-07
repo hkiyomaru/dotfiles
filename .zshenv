@@ -76,5 +76,8 @@ path=($HOME/.local/bin(N-/) ${path})
 case $(uname -s) in
   Darwin)
     setopt no_global_rcs
+    if [[ -e /Library/TeX ]]; then
+      path=(/Library/TeX/texbin(N-/) ${path})
+    fi
     ;;
 esac
