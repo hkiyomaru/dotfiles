@@ -117,8 +117,7 @@ cask "microsoft-edge"
 # development tool
 cask "iterm2"
 cask "visual-studio-code"
-cask "pycharm"
-cask "webstorm"
+cask "pycharm-ce"
 cask "docker"
 cask "mactex"
 
