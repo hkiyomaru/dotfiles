@@ -100,6 +100,7 @@ brew "jump"         # directory navigator
 brew "sphinx-doc"   # document generator
 brew "viu"          # command-line image viewer
 brew "mackup"       # sync Mac's application settings
+brew "pipx"         # Execute binaries from Python packages in isolated environments
 
 # ------------------------------------------
 # GUI macOS applications
