@@ -64,7 +64,6 @@ brew "git"          # revision control system
 brew "git-lfs"      # Git extension for versioning large files
 brew "gh"           # Github CLI
 brew "git-delta"    # syntax-highlighting pager
-brew "docker"       # platform for developing apps
 brew "tmux"         # terminal multiplexer
 brew "wget"         # internet file retriever
 brew "curl"         # internet file retriever
