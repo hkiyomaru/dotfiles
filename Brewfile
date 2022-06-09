@@ -5,6 +5,8 @@ brew "gcc"
 brew "make"
 brew "cmake"
 brew "llvm"
+brew "autoconf"
+brew "automake"
 
 # ------------------------------------------
 # shell
@@ -44,6 +46,7 @@ brew "poetry"
 # ------------------------------------------
 brew "libssh"
 brew "libomp"
+brew "libtool"
 brew "boost"
 
 # ------------------------------------------
