@@ -94,6 +94,7 @@ brew "parallel"     # Command parallelization utility
 brew "black"        # Python code formatter
 brew "flake8"       # Python code checker
 brew "isort"        # Python import optimizer
+brew "mypy"         # Python static type checker
 brew "pre-commit"   # pre-commit hook manager
 brew "silicon"      # source code image creator
 brew "tldr"         # collection of help pages
@@ -143,7 +144,6 @@ cask "grammarly"
 cask "mendeley"
 cask "papers"
 cask "kindle"
-cask "flux"
 cask "kap"
 cask "dropbox"
 mas "Effortless", id: 1368722917
