@@ -26,7 +26,7 @@ path=(
 )
 
 # kurolab
-if [ -d /mnt/berry/home ]; then
+if [ -d /mnt/poppy/home ]; then
   if [[ $(uname -n) =~ "^baracuda" ]] || [[ $(uname -n) =~ "^moss" ]] || [[ $(uname -n) = "saffron" ]]; then
     export CUDA_HOME=/usr/local/cuda
     export CUDA_PATH=/usr/local/cuda
