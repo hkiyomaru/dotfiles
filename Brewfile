@@ -30,7 +30,7 @@ brew "python@3.7"
 brew "ruby"
 brew "perl"
 brew "go"
-
+brew "r"
 brew "rustup-init"
 brew "haskell-stack"
 
@@ -62,6 +62,7 @@ brew "binutils"     # GNU binary tools
 brew "coreutils"    # GNU core utilities
 brew "findutils"    # GNU find, locate, and xargs
 brew "openssl"      # OpenSSL
+brew "openblas"     # OpenBLAS
 brew "subversion"   # revision control system
 brew "git"          # revision control system
 brew "git-lfs"      # Git extension for versioning large files
