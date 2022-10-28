@@ -1,7 +1,7 @@
 # ------------------------------------------
 # build tools
 # ------------------------------------------
-brew "gcc"
+brew "gcc", args: ["force-bottle"]
 brew "make"
 brew "cmake"
 brew "llvm"
@@ -27,7 +27,7 @@ brew "python"
 brew "python@3.9"
 brew "python@3.8"
 brew "python@3.7"
-brew "ruby"
+brew "ruby", args: ["force-bottle"]
 brew "perl"
 brew "go"
 brew "r"
