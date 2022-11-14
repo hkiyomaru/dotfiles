@@ -77,7 +77,7 @@ setup_homebrew() {
         esac
     fi
 
-    brew bundle
+    env -u LD_LIBRARY_PATH brew bundle
 
     info "Installing fzf"
     "$(brew --prefix)"/opt/fzf/install --key-bindings --completion --no-update-rc --no-bash --no-fish

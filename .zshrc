@@ -84,14 +84,6 @@ fi
 # p -> python3
 alias p='python3'
 
-# When kurolab, use Homebrew libraries
-if [[ -d "/mnt/poppy/home" ]]; then
-  alias brew="env -u LD_LIBRARY_PATH PATH=${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin:/usr/bin:/bin:/usr/sbin:/sbin brew"
-  alias ansible="env PATH=/usr/bin:/bin ansible"
-  alias ansible-playbook="env PATH=/usr/bin:/bin ansible-playbook"
-  alias ansible-galaxy="env PATH=/usr/bin:/bin ansible-galaxy"
-fi
-
 # ------------------------------------------
 # Misc
 # ------------------------------------------
