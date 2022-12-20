@@ -81,8 +81,10 @@ if [[ -x "$(command -v exa)" ]]; then
   alias ls='exa --color=auto'
 fi
 
-# p -> python3
-alias p='python3'
+# lab
+if [[ -d /mnt/poppy/home ]]; then
+  alias brew='env -u LD_LIBRARY_PATH PATH=${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin:/usr/bin:/bin:/usr/sbin:/sbin brew'
+fi
 
 # ------------------------------------------
 # Misc
