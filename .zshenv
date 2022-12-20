@@ -67,6 +67,12 @@ for prefix in "${HOME}/.linuxbrew" "/usr/local" "/opt/homebrew"; do
   fi
 done
 
+# hf
+HF_HOME="/mnt/zamia/kiyomaru/cache/huggingface"
+if [ -d "${HF_HOME}" ]; then
+  export HF_HOME="${HF_HOME}"
+fi
+
 # misc
 path=($HOME/.local/bin(N-/) ${path})
 
