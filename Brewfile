@@ -2,11 +2,15 @@
 # build tools
 # ------------------------------------------
 brew "gcc", args: ["force-bottle"]
+brew "gcc@11"
+brew "gcc@10"
 brew "make"
 brew "cmake"
 brew "llvm"
 brew "autoconf"
 brew "automake"
+
+brew "openjdk@11"
 
 # ------------------------------------------
 # shell
@@ -24,6 +28,8 @@ brew "neovim"
 # langauge
 # ------------------------------------------
 brew "python"
+brew "python@3.11"
+brew "python@3.10"
 brew "python@3.9"
 brew "python@3.8"
 brew "python@3.7"
