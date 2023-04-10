@@ -149,6 +149,9 @@ setup_macos() {
         info "Dock: Make the icon size smaller"
         defaults write com.apple.dock "tilesize" -int "36"
 
+        info "Dock: Hide automatically"
+        defaults write com.apple.dock "autohide" -bool "true"
+
         info "Dock: Speed up showing and hiding"
         defaults write com.apple.dock autohide-delay -float 0
         defaults write com.apple.dock autohide-time-modifier -float 1.0
