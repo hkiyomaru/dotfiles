@@ -81,16 +81,6 @@ if [[ -x "$(command -v exa)" ]]; then
   alias ls='exa --color=auto'
 fi
 
-# Use Docker's jumanpp if jumanpp is not installed
-if [[ ! -x "$(command -v jumanpp)" ]]; then
-  alias jumanpp='docker run --init -i --rm --platform linux/amd64 kunlp/jumanpp-knp jumanpp'
-fi
-
-# Use Docker's knp if knp is not installed
-if [[ ! -x "$(command -v knp)" ]]; then
-  alias knp='docker run --init -i --rm --platform linux/amd64 kunlp/jumanpp-knp knp'
-fi
-
 # lab
 if [[ -d /mnt/poppy/home ]]; then
   alias brew='env -u LD_LIBRARY_PATH PATH=${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin:/usr/bin:/bin:/usr/sbin:/sbin brew'

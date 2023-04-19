@@ -185,6 +185,14 @@ setup_macos() {
 
         info "Finder: Show the status bar"
         defaults write com.apple.finder ShowStatusBar -bool true
+
+        info "Install Juman++"
+        mkdir -p ${HOME}/.local/bin
+        ln -sfnv ${DOTFILES}/.local/bin/jumanpp ${HOME}/.local/bin/jumanpp
+
+        info "Install KNP"
+        mkdir -p ${HOME}/.local/bin
+        ln -sfnv ${DOTFILES}/.local/bin/knp ${HOME}/.local/bin/knp
     else
         warning "macOS not detected. Skipping."
     fi

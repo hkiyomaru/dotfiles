@@ -1,0 +1,2 @@
+#!/bin/sh
+docker run --init -i --rm --platform linux/amd64 kunlp/jumanpp-knp knp
