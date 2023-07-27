@@ -61,6 +61,22 @@ zinit ice lucid pick"/dev/null" multisrc"{async,pure}.zsh" nocd atload"!prompt_p
 zinit light sindresorhus/pure
 
 # ------------------------------------------
+# Misc
+# ------------------------------------------
+# fzf
+[[ -f "${HOME}/.fzf.zsh" ]] && source $HOME/.fzf.zsh
+
+# anyenv
+[[ -x "$(command -v anyenv)" && -d "${HOME}/.anyenv" ]] && eval "$(anyenv init -)"
+
+# chruby
+if [[ -d "$(brew --prefix)/opt/chruby/share/chruby" ]]; then
+  source $(brew --prefix)/opt/chruby/share/chruby/chruby.sh
+  source $(brew --prefix)/opt/chruby/share/chruby/auto.sh
+  chruby ruby-3.1.3
+fi
+
+# ------------------------------------------
 # Alias
 # ------------------------------------------
 alias zr='exec zsh -l'
@@ -85,12 +101,3 @@ fi
 if [[ -d /mnt/poppy/home ]]; then
   alias brew='env -u LD_LIBRARY_PATH PATH=${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin:/usr/bin:/bin:/usr/sbin:/sbin brew'
 fi
-
-# ------------------------------------------
-# Misc
-# ------------------------------------------
-# fzf
-[[ -f "${HOME}/.fzf.zsh" ]] && source $HOME/.fzf.zsh
-
-# anyenv
-[[ -x "$(command -v anyenv)" && -d "${HOME}/.anyenv" ]] && eval "$(anyenv init -)"

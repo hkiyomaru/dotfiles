@@ -34,6 +34,8 @@ brew "python@3.9"
 brew "python@3.8"
 brew "python@3.7"
 brew "ruby", args: ["force-bottle"]
+brew "chruby"
+brew "ruby-install"
 brew "perl"
 brew "go"
 brew "r"
