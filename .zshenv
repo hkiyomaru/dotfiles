@@ -68,7 +68,7 @@ for prefix in "${HOME}/.linuxbrew" "/usr/local" "/opt/homebrew"; do
 done
 
 # hf
-HF_HOME="/mnt/zamia/kiyomaru/cache/huggingface"
+HF_HOME="/mnt/mint/cache/huggingface"
 if [ -d "${HF_HOME}" ]; then
   export HF_HOME="${HF_HOME}"
 fi
