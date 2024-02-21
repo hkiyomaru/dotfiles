@@ -117,8 +117,6 @@ brew "pipx"         # Execute binaries from Python packages in isolated environm
 # ------------------------------------------
 # GUI macOS applications
 # ------------------------------------------
-tap "homebrew/cask"
-
 # input
 cask "google-japanese-ime"
 
@@ -132,7 +130,6 @@ cask "iterm2"
 cask "visual-studio-code"
 cask "pycharm-ce"
 cask "docker"
-cask "mactex"
 
 # note
 cask "notion"
@@ -158,6 +155,7 @@ cask "kap"
 cask "dropbox"
 mas "Effortless", id: 1368722917
 mas "Craft", id: 1487937127
+mas "Keynote", id: 409183694
 
 # ------------------------------------------
 # fonts
