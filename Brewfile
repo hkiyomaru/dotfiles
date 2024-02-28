@@ -28,6 +28,7 @@ brew "neovim"
 # langauge
 # ------------------------------------------
 brew "python"
+brew "python@3.12"
 brew "python@3.11"
 brew "python@3.10"
 brew "python@3.9"
