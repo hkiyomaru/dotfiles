@@ -46,6 +46,7 @@ brew "cling"
 
 brew "anyenv"
 
+brew "uv"
 brew "pipenv"
 brew "poetry"
 
