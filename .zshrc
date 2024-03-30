@@ -90,11 +90,10 @@ if [[ -x "$(command -v bat)" ]]; then
 fi
 
 # ls -> exa
-if [[ -x "$(command -v exa)" ]]; then
-  alias l='exa'
-  alias la='exa -a'
-  alias ll='exa -la'
-  alias ls='exa --color=auto'
+if [[ -x "$(command -v eza)" ]]; then
+  alias l='eza'
+  alias la='eza -a'
+  alias ll='eza -la'
 fi
 
 # lab
