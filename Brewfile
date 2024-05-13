@@ -115,6 +115,7 @@ brew "sphinx-doc"   # document generator
 brew "viu"          # command-line image viewer
 brew "mackup"       # sync Mac's application settings
 brew "pipx"         # Execute binaries from Python packages in isolated environments
+brew "cocoapods"    # Dependency manager for Cocoa projects
 
 # ------------------------------------------
 # GUI macOS applications
@@ -132,6 +133,9 @@ cask "iterm2"
 cask "visual-studio-code"
 cask "pycharm-ce"
 cask "docker"
+cask "flutter"
+cask "android-studio"
+cask "google-cloud-sdk"
 
 # note
 cask "notion"
