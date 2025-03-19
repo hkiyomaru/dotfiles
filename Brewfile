@@ -3,7 +3,6 @@
 # ------------------------------------------
 brew "gcc", args: ["force-bottle"]
 brew "gcc@11"
-brew "gcc@10"
 brew "make"
 brew "cmake"
 brew "llvm"
@@ -33,7 +32,6 @@ brew "python@3.11"
 brew "python@3.10"
 brew "python@3.9"
 brew "python@3.8"
-brew "python@3.7"
 brew "ruby", args: ["force-bottle"]
 brew "chruby"
 brew "ruby-install"
@@ -47,6 +45,7 @@ brew "cling"
 
 brew "anyenv"
 
+brew "rye"
 brew "uv"
 brew "pipenv"
 brew "poetry"
@@ -149,6 +148,7 @@ cask "slack"
 mas "LINE", id: 539883307
 
 # misc
+cask "mactex"
 cask "microsoft-office"
 cask "adobe-acrobat-reader"
 cask "alfred"
