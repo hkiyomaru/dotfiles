@@ -83,7 +83,7 @@ zstyle ':completion:*:(ssh|scp|rsync):*:hosts-ipaddr' ignored-patterns '^(<->.<-
 zinit light zsh-users/zsh-autosuggestions
 
 # History
-HISTFILE="${HOME}/.zhistory"
+HISTFILE="${HOME}/.zsh_history"
 HISTSIZE=200000
 SAVEHIST=100000
 
