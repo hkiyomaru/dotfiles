@@ -35,13 +35,6 @@ export PYTHONUSERBASE=${HOME}/.local
 # Rust
 path=(${HOME}/.cargo/bin(N-) ${path})
 
-# Perl5
-export PERL5LIB="${HOME}/.perl5/lib/perl5"
-export PERL_LOCAL_LIB_ROOT="${HOME}/.perl5"
-export PERL_MB_OPT="--install_base ${PERL_LOCAL_LIB_ROOT}"
-export PERL_MM_OPT="INSTALL_BASE=${PERL_LOCAL_LIB_ROOT}"
-path=(${PERL_LOCAL_LIB_ROOT}/bin(N-) ${path})
-
 # Go
 export GOPATH=$HOME/.go
 path=(${GOPATH}/bin(N-) ${path})

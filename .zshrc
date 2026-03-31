@@ -1,9 +1,6 @@
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 source "${ZINIT_HOME}/zinit.zsh"
 
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-
 # Theme: starship
 zinit ice as"command" from"gh-r" \
           atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
@@ -86,6 +83,7 @@ zstyle ':completion:*:(ssh|scp|rsync):*:hosts-host' ignored-patterns '*(.|:)*' l
 zstyle ':completion:*:(ssh|scp|rsync):*:hosts-domain' ignored-patterns '<->.<->.<->.<->' '^[-[:alnum:]]##(.[-[:alnum:]]##)##' '*@*'
 zstyle ':completion:*:(ssh|scp|rsync):*:hosts-ipaddr' ignored-patterns '^(<->.<->.<->.<->|(|::)([[:xdigit:].]##:(#c,2))##(|%*))' '127.0.0.<->' '255.255.255.255' '::1' 'fe80::*'
 
+zinit ice wait lucid
 zinit light zsh-users/zsh-autosuggestions
 
 # History
@@ -148,20 +146,14 @@ alias gwS='git status --ignore-submodules=none'
 alias gwd='git diff --no-ext-diff'
 alias gwD='git diff --no-ext-diff --word-diff'
 
+alias zr='exec zsh -l'
+
 # Syntax highlighting
+zinit ice wait lucid
 zinit light zdharma-continuum/fast-syntax-highlighting
 
 # fzf
 [[ -f "${HOME}/.fzf.zsh" ]] && source $HOME/.fzf.zsh
-
-# anyenv
-[[ -x "$(command -v anyenv)" && -d "${HOME}/.anyenv" ]] && eval "$(anyenv init -)"
-
-# chruby
-if [[ -d "$(brew --prefix)/opt/chruby/share/chruby" ]]; then
-  source $(brew --prefix)/opt/chruby/share/chruby/chruby.sh
-  source $(brew --prefix)/opt/chruby/share/chruby/auto.sh
-fi
 
 # bat
 [[ -x "$(command -v bat)" ]] && alias cat='bat'
