@@ -1,14 +1,8 @@
 # ------------------------------------------
 # Build tools
 # ------------------------------------------
-brew "autoconf"
-brew "automake"
-brew "cmake"
-brew "gcc", args: ["force-bottle"]
-brew "gcc@11"
-brew "llvm"
+brew "gcc"
 brew "make"
-brew "openjdk@11"
 
 # ------------------------------------------
 # Shell
@@ -34,7 +28,7 @@ brew "rustup-init"
 brew "uv"
 brew "poetry"
 brew "pipenv"
-brew "pipx"         # Execute binaries from Python packages in isolated environments
+brew "pipx"
 
 # ------------------------------------------
 # C library
@@ -74,7 +68,6 @@ brew "openblas"     # OpenBLAS
 brew "openssl"      # OpenSSL
 brew "parallel"     # command parallelization utility
 brew "ripgrep"      # improved grep
-brew "subversion"   # revision control system
 brew "tmux"         # terminal multiplexer
 brew "tokei"        # display statistics about code
 brew "tree"         # recursive directory listing command
