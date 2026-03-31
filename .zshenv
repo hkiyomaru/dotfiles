@@ -17,10 +17,6 @@ path=(
   /{bin,sbin}(N-/)
 )
 
-export HISTFILE="${HOME}/.zhistory"
-export HISTSIZE=200000
-export SAVEHIST=100000
-
 # {home,linux}brew
 for prefix in "${HOME}/.linuxbrew" "/usr/local" "/opt/homebrew"; do
   if [[ -x "${prefix}/bin/brew" ]]; then
