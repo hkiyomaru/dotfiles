@@ -2,10 +2,7 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 source "${ZINIT_HOME}/zinit.zsh"
 
 # Theme: starship
-zinit ice as"command" from"gh-r" \
-          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
-          atpull"%atclone" src"init.zsh"
-zinit light starship/starship
+[[ -x "$(command -v starship)" ]] && eval "$(starship init zsh)"
 
 # Completion options
 setopt COMPLETE_IN_WORD # Complete from both ends of a word.
