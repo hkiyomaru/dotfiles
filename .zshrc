@@ -83,7 +83,6 @@ zstyle ':completion:*:(ssh|scp|rsync):*:hosts-host' ignored-patterns '*(.|:)*' l
 zstyle ':completion:*:(ssh|scp|rsync):*:hosts-domain' ignored-patterns '<->.<->.<->.<->' '^[-[:alnum:]]##(.[-[:alnum:]]##)##' '*@*'
 zstyle ':completion:*:(ssh|scp|rsync):*:hosts-ipaddr' ignored-patterns '^(<->.<->.<->.<->|(|::)([[:xdigit:].]##:(#c,2))##(|%*))' '127.0.0.<->' '255.255.255.255' '::1' 'fe80::*'
 
-zinit ice wait lucid
 zinit light zsh-users/zsh-autosuggestions
 
 # History
@@ -149,7 +148,6 @@ alias gwD='git diff --no-ext-diff --word-diff'
 alias zr='exec zsh -l'
 
 # Syntax highlighting
-zinit ice wait lucid
 zinit light zdharma-continuum/fast-syntax-highlighting
 
 # fzf
