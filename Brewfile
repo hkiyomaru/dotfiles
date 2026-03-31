@@ -24,16 +24,8 @@ brew "vim"
 # ------------------------------------------
 # Programming languages
 # ------------------------------------------
-brew "anyenv"
-brew "chruby"
-brew "cling"
 brew "go"
-brew "haskell-stack"
-brew "perl"
 brew "python"
-brew "r"
-brew "ruby", args: ["force-bottle"]
-brew "ruby-install"
 brew "rustup-init"
 
 # ------------------------------------------
