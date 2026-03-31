@@ -1,171 +1,126 @@
 # ------------------------------------------
-# build tools
+# Build tools
 # ------------------------------------------
-brew "gcc", args: ["force-bottle"]
-brew "gcc@11"
-brew "make"
-brew "cmake"
-brew "llvm"
 brew "autoconf"
 brew "automake"
-
+brew "cmake"
+brew "gcc", args: ["force-bottle"]
+brew "gcc@11"
+brew "llvm"
+brew "make"
 brew "openjdk@11"
 
 # ------------------------------------------
-# shell
+# Shell
 # ------------------------------------------
 brew "zsh"
 
 # ------------------------------------------
-# editor
+# Editor
 # ------------------------------------------
 brew "emacs"
 brew "vim"
-brew "neovim"
 
 # ------------------------------------------
-# langauge
+# Programming languages
 # ------------------------------------------
-brew "python"
-brew "python@3.12"
-brew "python@3.11"
-brew "python@3.10"
-brew "python@3.9"
-brew "python@3.8"
-brew "ruby", args: ["force-bottle"]
-brew "chruby"
-brew "ruby-install"
-brew "perl"
-brew "go"
-brew "r"
-brew "rustup-init"
-brew "haskell-stack"
-
-brew "cling"
-
 brew "anyenv"
+brew "chruby"
+brew "cling"
+brew "go"
+brew "haskell-stack"
+brew "perl"
+brew "python"
+brew "r"
+brew "ruby", args: ["force-bottle"]
+brew "ruby-install"
+brew "rustup-init"
 
-brew "rye"
+# ------------------------------------------
+# Python tooling
+# ------------------------------------------
 brew "uv"
-brew "pipenv"
 brew "poetry"
+brew "pipenv"
+brew "pipx"         # Execute binaries from Python packages in isolated environments
 
 # ------------------------------------------
 # C library
 # ------------------------------------------
-brew "libssh"
-brew "libomp"
-brew "libtool"
 brew "boost"
+brew "libomp"
+brew "libssh"
+brew "libtool"
 
 # ------------------------------------------
-# compressor
+# Compressor
 # ------------------------------------------
 brew "gzip"
 brew "xz"
 
 # ------------------------------------------
-# misc
+# CLI utilities
 # ------------------------------------------
-brew "binutils"     # GNU binary tools
-brew "coreutils"    # GNU core utilities
-brew "findutils"    # GNU find, locate, and xargs
-brew "openssl"      # OpenSSL
-brew "openblas"     # OpenBLAS
-brew "subversion"   # revision control system
-brew "git"          # revision control system
-brew "git-lfs"      # Git extension for versioning large files
-brew "gh"           # Github CLI
-brew "git-delta"    # syntax-highlighting pager
-brew "tmux"         # terminal multiplexer
-brew "wget"         # internet file retriever
-brew "curl"         # internet file retriever
-brew "htop"         # improved top
 brew "bat"          # improved cat
-brew "fd"           # improved find
-brew "eza"          # improved ls
-brew "ripgrep"      # improved grep
-brew "procs"        # improved ps
-brew "dust"         # improved du
-brew "duf"          # improved df
-brew "broot"        # improved tree
+brew "binutils"     # GNU binary tools
 brew "colordiff"    # colored diff
+brew "coreutils"    # GNU core utilities
+brew "curl"         # internet file retriever
+brew "eza"          # improved ls
+brew "findutils"    # GNU find, locate, and xargs
 brew "fzf"          # interactive filtering tool
+brew "gh"           # Github CLI
+brew "git"          # revision control system
+brew "git-delta"    # syntax-highlighting pager
+brew "git-lfs"      # Git extension for versioning large files
+brew "htop"         # improved top
+brew "imagemagick"  # image manipulator
+brew "jq"           # command-line JSON processor
+brew "mackup"       # sync Mac's application settings
+brew "nkf"          # kanji code converter
+brew "openblas"     # OpenBLAS
+brew "openssl"      # OpenSSL
+brew "parallel"     # command parallelization utility
+brew "ripgrep"      # improved grep
+brew "subversion"   # revision control system
+brew "tmux"         # terminal multiplexer
+brew "tokei"        # display statistics about code
 brew "tree"         # recursive directory listing command
 brew "watch"        # execute a program periodically
-brew "tokei"        # display statistics about code
-brew "graphviz"     # graph visualization software
-brew "st"           # terminal emulator
-brew "nkf"          # kanji code converter
-brew "jq"           # command-line JSON processor
-brew "xsv"          # command-line CSV processor
-brew "imagemagick"  # image manipulator
-brew "parallel"     # Command parallelization utility
-brew "black"        # Python code formatter
-brew "flake8"       # Python code checker
-brew "isort"        # Python import optimizer
-brew "mypy"         # Python static type checker
-brew "pre-commit"   # pre-commit hook manager
-brew "silicon"      # source code image creator
-brew "tldr"         # collection of help pages
-brew "hyperfine"    # benchmarking tool
-brew "jump"         # directory navigator
-brew "sphinx-doc"   # document generator
-brew "viu"          # command-line image viewer
-brew "mackup"       # sync Mac's application settings
-brew "pipx"         # Execute binaries from Python packages in isolated environments
-brew "cocoapods"    # Dependency manager for Cocoa projects
+brew "wget"         # internet file retriever
 
 # ------------------------------------------
 # GUI macOS applications
 # ------------------------------------------
-# input
-cask "google-japanese-ime"
-
-# browser
+# Browser
 cask "google-chrome"
-cask "firefox"
-cask "microsoft-edge"
 
-# development tool
+# Communication
+cask "discord"
+mas "LINE", id: 539883307
+cask "slack"
+cask "zoom"
+
+# Development tool
+cask "codex"
+cask "docker-desktop"
+cask "gcloud-cli"
 cask "iterm2"
 cask "visual-studio-code"
-cask "pycharm-ce"
-cask "docker"
-cask "flutter"
-cask "android-studio"
-cask "google-cloud-sdk"
 
-# note
-cask "notion"
-cask "evernote"
+# Input
+cask "google-japanese-ime"
 
-# communication
-cask "zoom"
-cask "discord"
-cask "skype"
-cask "slack"
-mas "LINE", id: 539883307
-
-# misc
-cask "codex"
-cask "mactex"
-cask "microsoft-office"
+# Misc
 cask "adobe-acrobat-reader"
 cask "alfred"
 cask "clipy"
-cask "grammarly"
-cask "mendeley"
-cask "papers"
-cask "kindle"
-cask "kap"
 cask "dropbox"
 mas "Effortless", id: 1368722917
-mas "Craft", id: 1487937127
 mas "Keynote", id: 409183694
+cask "kindle"
+cask "microsoft-office"
 
-# ------------------------------------------
-# fonts
-# ------------------------------------------
-tap "homebrew/cask-fonts"
-cask "font-hack-nerd-font"
+# Note
+mas "Craft", id: 1487937127
+cask "notion"
