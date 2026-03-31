@@ -148,6 +148,7 @@ cask "slack"
 mas "LINE", id: 539883307
 
 # misc
+cask "codex"
 cask "mactex"
 cask "microsoft-office"
 cask "adobe-acrobat-reader"
