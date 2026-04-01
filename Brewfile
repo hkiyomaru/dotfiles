@@ -1,27 +1,35 @@
 # ------------------------------------------
 # Build tools
 # ------------------------------------------
-brew "gcc"
-brew "make"
+if OS.mac?
+  brew "gcc"
+  brew "make"
+end
 
 # ------------------------------------------
 # Shell
 # ------------------------------------------
-brew "zsh"
-brew "starship"
+if OS.mac?
+  brew "zsh"
+end
+  brew "starship"
 
 # ------------------------------------------
 # Editor
 # ------------------------------------------
-brew "emacs"
-brew "vim"
+if OS.mac?
+  brew "emacs"
+  brew "vim"
+end
 
 # ------------------------------------------
 # Programming languages
 # ------------------------------------------
-brew "go"
-brew "python"
-brew "rustup-init"
+if OS.mac?
+  brew "go"
+  brew "python"
+  brew "rustup-init"
+end
 
 # ------------------------------------------
 # Python tooling
@@ -34,30 +42,39 @@ brew "pipx"
 # ------------------------------------------
 # C library
 # ------------------------------------------
-brew "boost"
-brew "libomp"
-brew "libssh"
-brew "libtool"
+if OS.mac?
+  brew "boost"
+  brew "libomp"
+  brew "libssh"
+  brew "libtool"
+end
 
 # ------------------------------------------
 # Compressor
 # ------------------------------------------
-brew "gzip"
-brew "xz"
+if OS.mac?
+  brew "gzip"
+  brew "xz"
+end
 
 # ------------------------------------------
 # CLI utilities
 # ------------------------------------------
+if OS.mac?
+  brew "binutils"     # GNU binary tools
+  brew "coreutils"    # GNU core utilities
+  brew "git"          # revision control system
+  brew "openblas"     # OpenBLAS
+  brew "openssl"      # OpenSSL
+end
+
 brew "bat"          # improved cat
-brew "binutils"     # GNU binary tools
 brew "colordiff"    # colored diff
-brew "coreutils"    # GNU core utilities
 brew "curl"         # internet file retriever
 brew "eza"          # improved ls
 brew "findutils"    # GNU find, locate, and xargs
 brew "fzf"          # interactive filtering tool
 brew "gh"           # Github CLI
-brew "git"          # revision control system
 brew "git-delta"    # syntax-highlighting pager
 brew "git-lfs"      # Git extension for versioning large files
 brew "htop"         # improved top
@@ -65,8 +82,6 @@ brew "imagemagick"  # image manipulator
 brew "jq"           # command-line JSON processor
 brew "mackup"       # sync Mac's application settings
 brew "nkf"          # kanji code converter
-brew "openblas"     # OpenBLAS
-brew "openssl"      # OpenSSL
 brew "parallel"     # command parallelization utility
 brew "ripgrep"      # improved grep
 brew "tmux"         # terminal multiplexer
