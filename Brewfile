@@ -17,6 +17,7 @@ brew "git-delta"
 brew "git-lfs"
 
 cask "codex"
+brew "awscli"
 
 if OS.mac?
   brew "gcc"
