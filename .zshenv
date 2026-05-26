@@ -8,6 +8,10 @@ export LANGUAGE=en_US
 export LC_CTYPE=${LANG}
 export LC_ALL=${LANG}
 
+if [[ -d /mode/kiyomaru ]]; then
+  export XDG_CACHE_HOME=/mode/kiyomaru/.cache
+fi
+
 typeset -U path
 path=(
   $HOME/local/bin(N-/)
