@@ -3,10 +3,8 @@ if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; t
   source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
 
-export LANG=en_US.UTF-8
-export LANGUAGE=en_US
-export LC_CTYPE=${LANG}
-export LC_ALL=${LANG}
+export LANG=C.UTF-8
+unset LC_ALL
 
 if [[ -d /model/kiyomaru ]]; then
   export XDG_CACHE_HOME=/model/kiyomaru/.cache
