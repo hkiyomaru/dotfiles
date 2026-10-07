@@ -17,6 +17,7 @@ brew "git-delta"
 brew "git-lfs"
 
 cask "codex"
+cask "claude-code"
 brew "awscli"
 
 if OS.mac?
@@ -30,6 +31,7 @@ if OS.mac?
 
   brew "python"
   brew "rustup-init"
+  brew "node"
 
   brew "gzip"
   brew "xz"
