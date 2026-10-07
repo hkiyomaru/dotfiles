@@ -216,3 +216,5 @@ Temporary Items
 
 .idea/
 .codex
+
+**/.claude/settings.local.json
