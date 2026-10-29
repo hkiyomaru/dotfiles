@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Stop on failed setup commands, including failures within pipelines.
+set -e -o pipefail
+
 DOTFILES="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)" || exit 1
 COLOR_GRAY="\033[1;38;5;243m"
 COLOR_BLUE="\033[1;34m"
@@ -52,7 +55,9 @@ setup_symlink() {
 
     # .mackup.cfg
     ln -sfnv "${DOTFILES}/.mackup.cfg" "${HOME}"
-    [ -x "$(command -v mackup)" ] && mackup restore
+    if [ -x "$(command -v mackup)" ]; then
+        mackup restore
+    fi
 }
 
 setup_homebrew() {
@@ -65,10 +70,12 @@ setup_homebrew() {
             git clone --depth 1 https://github.com/Homebrew/brew "${HOME}"/.linuxbrew/Homebrew
             mkdir -p "${HOME}"/.linuxbrew/bin
             ln -fs "${HOME}"/.linuxbrew/Homebrew/bin/brew "${HOME}"/.linuxbrew/bin
-            eval $("${HOME}"/.linuxbrew/bin/brew shellenv)
+            brew_env="$("${HOME}"/.linuxbrew/bin/brew shellenv)"
+            eval "${brew_env}"
             ;;
         Darwin)
-            /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+            brew_installer="$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+            /bin/bash -c "${brew_installer}"
             ;;
         *)
             error "Only Linux and macOS are supported. Aborting."
@@ -80,7 +87,8 @@ setup_homebrew() {
     env -u LD_LIBRARY_PATH brew bundle --file="${DOTFILES}/Brewfile"
 
     info "Installing fzf"
-    "$(brew --prefix)"/opt/fzf/install --key-bindings --completion --no-update-rc --no-bash --no-fish
+    brew_prefix="$(brew --prefix)"
+    "${brew_prefix}/opt/fzf/install" --key-bindings --completion --no-update-rc --no-bash --no-fish
 }
 
 setup_shell() {
@@ -92,7 +100,8 @@ setup_shell() {
             Linux)
                 # Use zsh installed in the system
                 zsh_path="$(command -v zsh)"
-                for p in $(where zsh); do
+                zsh_candidates="$(where zsh)"
+                for p in ${zsh_candidates}; do
                     if [[ -n ${p##$(realpath "${HOME}")/*} ]]; then
                         zsh_path="${p}"
                         break
@@ -107,7 +116,8 @@ setup_shell() {
                 ;;
             Darwin)
                 # Use zsh installed by Homebrew
-                zsh_path="$(brew --prefix)/bin/zsh"
+                brew_prefix="$(brew --prefix)"
+                zsh_path="${brew_prefix}/bin/zsh"
 
                 echo "$zsh_path" | sudo tee -a /etc/shells
                 info "Added ${zsh_path} to /etc/shells"
