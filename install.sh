@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DOTFILES="$(pwd)"
+DOTFILES="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)" || exit 1
 COLOR_GRAY="\033[1;38;5;243m"
 COLOR_BLUE="\033[1;34m"
 COLOR_GREEN="\033[1;32m"
@@ -36,22 +36,22 @@ setup_symlink() {
 
     # zinit
     zinit_home="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-    mkdir -p "$(dirname ${zinit_home})"
+    mkdir -p "$(dirname "${zinit_home}")"
     ln -sfnv "${DOTFILES}/zinit.git" "${zinit_home}"
 
     # .zshenv, .zprofile, and .zshrc
-    for path in ${DOTFILES}/{.zshenv,.zprofile,.zshrc}; do
-        ln -sfnv ${path} ${HOME}
+    for path in "${DOTFILES}"/{.zshenv,.zprofile,.zshrc}; do
+        ln -sfnv "${path}" "${HOME}"
     done
 
     # .config
-    mkdir -p ${HOME}/.config
-    for path in ${DOTFILES}/.config/*; do
-        ln -snfv ${path} ${HOME}/.config
+    mkdir -p "${HOME}/.config"
+    for path in "${DOTFILES}"/.config/*; do
+        ln -snfv "${path}" "${HOME}/.config"
     done
 
     # .mackup.cfg
-    ln -sfnv ${DOTFILES}/.mackup.cfg ${HOME}
+    ln -sfnv "${DOTFILES}/.mackup.cfg" "${HOME}"
     [ -x "$(command -v mackup)" ] && mackup restore
 }
 
@@ -77,7 +77,7 @@ setup_homebrew() {
         esac
     fi
 
-    env -u LD_LIBRARY_PATH brew bundle
+    env -u LD_LIBRARY_PATH brew bundle --file="${DOTFILES}/Brewfile"
 
     info "Installing fzf"
     "$(brew --prefix)"/opt/fzf/install --key-bindings --completion --no-update-rc --no-bash --no-fish
