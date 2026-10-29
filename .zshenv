@@ -10,8 +10,16 @@ if [[ -d /model/kiyomaru ]]; then
   export XDG_CACHE_HOME=/model/kiyomaru/.cache
 fi
 
-# Preserve inherited paths and their priority, including active virtual environments.
-typeset -a _dotfiles_inherited_path=("${path[@]}")
+# Keep paths placed ahead of the standard search paths (e.g. virtual environments)
+# ahead of our tool setup, without giving system commands priority over Homebrew.
+typeset -a _dotfiles_priority_path=()
+for _dotfiles_path_entry in "${path[@]}"; do
+  case "${_dotfiles_path_entry}" in
+    /usr/local/bin|/usr/local/sbin|/usr/bin|/usr/sbin|/bin|/sbin) break ;;
+  esac
+  _dotfiles_priority_path+=("${_dotfiles_path_entry}")
+done
+unset _dotfiles_path_entry
 typeset -U path
 path=(
   "${path[@]}"
@@ -62,6 +70,6 @@ fi
 # Local bin
 path=($HOME/.local/bin(N-/) ${path})
 
-# Tool setup (including brew shellenv) may prepend paths; keep inherited ones first.
-path=("${_dotfiles_inherited_path[@]}" "${path[@]}")
-unset _dotfiles_inherited_path
+# Restore only the inherited priority prefix; all other inherited paths remain above.
+path=("${_dotfiles_priority_path[@]}" "${path[@]}")
+unset _dotfiles_priority_path
