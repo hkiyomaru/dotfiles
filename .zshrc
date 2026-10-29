@@ -132,7 +132,7 @@ alias gfm='git pull'
 
 alias gia='git add'
 
-alias gl='git log --topo-order --pretty=format:"$_git_log_medium_format"'
+alias gl='git log --topo-order --pretty=medium'
 
 alias gm='git merge'
 

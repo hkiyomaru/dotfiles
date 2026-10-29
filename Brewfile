@@ -16,6 +16,7 @@ brew "parallel"
 brew "git-delta"
 brew "git-lfs"
 
+cask "chatgpt"
 cask "codex"
 cask "claude-code"
 brew "awscli"
