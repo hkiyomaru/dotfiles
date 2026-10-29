@@ -76,6 +76,13 @@ setup_homebrew() {
         Darwin)
             brew_installer="$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
             /bin/bash -c "${brew_installer}"
+            case "$(uname -m)" in
+                arm64) brew_path="/opt/homebrew/bin/brew" ;;
+                *) brew_path="/usr/local/bin/brew" ;;
+            esac
+            [ -x "${brew_path}" ] || error "Homebrew executable not found: ${brew_path}"
+            brew_env="$("${brew_path}" shellenv)"
+            eval "${brew_env}"
             ;;
         *)
             error "Only Linux and macOS are supported. Aborting."
@@ -95,42 +102,44 @@ setup_shell() {
     title "Configuring shell"
 
     if [[ "$(basename "${SHELL}")" != "zsh" ]]; then
-        if [ -x "$(command -v brew)" ]; then
-            case "$(uname -s)" in
-            Linux)
-                # Use zsh installed in the system
-                zsh_path="$(command -v zsh)"
-                zsh_candidates="$(where zsh)"
-                for p in ${zsh_candidates}; do
-                    if [[ -n ${p##$(realpath "${HOME}")/*} ]]; then
-                        zsh_path="${p}"
-                        break
-                    fi
-                done
+        case "$(uname -s)" in
+        Linux)
+            # Use zsh installed in the system
+            zsh_candidates="$(type -aP zsh)" || error "zsh is not installed or is not on PATH."
+            zsh_path=""
+            while IFS= read -r p; do
+                case "${p}" in
+                    "${HOME}"/*|*/.linuxbrew/*) continue ;;
+                esac
+                zsh_path="${p}"
+                break
+            done <<< "${zsh_candidates}"
+            [ -n "${zsh_path}" ] || error "No system zsh found on PATH. Install zsh using your system package manager."
 
-                info "Added ${zsh_path} to /etc/shells"
-                echo "$zsh_path" | sudo tee -a /etc/shells
-                
-                chsh -s "${zsh_path}"
-                info "default shell changed to ${zsh_path}"
-                ;;
-            Darwin)
-                # Use zsh installed by Homebrew
-                brew_prefix="$(brew --prefix)"
-                zsh_path="${brew_prefix}/bin/zsh"
+            info "Added ${zsh_path} to /etc/shells"
+            echo "$zsh_path" | sudo tee -a /etc/shells
 
-                echo "$zsh_path" | sudo tee -a /etc/shells
-                info "Added ${zsh_path} to /etc/shells"
-                
-                chsh -s "${zsh_path}"
-                info "default shell changed to ${zsh_path}"
-                ;;
-            *)
-                error "Only Linux and macOS are supported. Aborting."
-                exit 1
-                ;;
-            esac
-        fi
+            chsh -s "${zsh_path}"
+            info "default shell changed to ${zsh_path}"
+            ;;
+        Darwin)
+            # Use zsh installed by Homebrew
+            command -v brew >/dev/null 2>&1 || error "Homebrew is required to configure zsh on macOS."
+            brew_prefix="$(brew --prefix)"
+            zsh_path="${brew_prefix}/bin/zsh"
+            [ -x "${zsh_path}" ] || error "zsh is not installed at ${zsh_path}."
+
+            echo "$zsh_path" | sudo tee -a /etc/shells
+            info "Added ${zsh_path} to /etc/shells"
+
+            chsh -s "${zsh_path}"
+            info "default shell changed to ${zsh_path}"
+            ;;
+        *)
+            error "Only Linux and macOS are supported. Aborting."
+            exit 1
+            ;;
+        esac
     fi
 }
 
