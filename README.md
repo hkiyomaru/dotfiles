@@ -73,7 +73,6 @@ Applies macOS preferences such as:
 - faster keyboard repeat
 - Dock auto-hide and layout tweaks
 - Finder visibility preferences
-- a few local symlinks under `~/.local/bin`
 
 This step is skipped automatically on non-macOS systems.
 
