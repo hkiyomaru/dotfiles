@@ -19,10 +19,10 @@ git clone --recurse-submodules https://github.com/hkiyomaru/dotfiles.git
 cd dotfiles
 ```
 
-If you already cloned it without submodules:
+If you already cloned it without submodules, run this from the repository directory:
 
 ```sh
-./update.sh
+git submodule update --init --recursive
 ```
 
 Run the full setup:
@@ -78,17 +78,18 @@ This step is skipped automatically on non-macOS systems.
 
 ## Update
 
-To pull the latest changes and refresh submodules:
+From the repository directory, pull the latest changes and refresh submodules:
 
 ```sh
-./update.sh
+git pull --ff-only origin main && git submodule update --init --recursive
 ```
 
 To update the repo and re-run the full setup:
 
 ```sh
-./update.sh
-./install.sh all
+git pull --ff-only origin main &&
+  git submodule update --init --recursive &&
+  ./install.sh all
 ```
 
 ## Shell environment
@@ -115,7 +116,6 @@ It also includes optional setup for tools such as `anyenv`, `chruby`, `pyenv`, R
 ├── .zshrc
 ├── Brewfile
 ├── install.sh
-├── update.sh
 └── zinit.git/
 ```
 
