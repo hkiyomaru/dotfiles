@@ -10,8 +10,11 @@ if [[ -d /model/kiyomaru ]]; then
   export XDG_CACHE_HOME=/model/kiyomaru/.cache
 fi
 
+# Preserve inherited paths and their priority, including active virtual environments.
+typeset -a _dotfiles_inherited_path=("${path[@]}")
 typeset -U path
 path=(
+  "${path[@]}"
   $HOME/local/bin(N-/)
   $HOME/usr/bin(N-/)
   /usr/local/{bin,sbin}(N-/)
@@ -58,3 +61,7 @@ fi
 
 # Local bin
 path=($HOME/.local/bin(N-/) ${path})
+
+# Tool setup (including brew shellenv) may prepend paths; keep inherited ones first.
+path=("${_dotfiles_inherited_path[@]}" "${path[@]}")
+unset _dotfiles_inherited_path
