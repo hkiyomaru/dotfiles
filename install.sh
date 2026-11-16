@@ -64,16 +64,28 @@ setup_homebrew() {
     title "Setting up Homebrew"
 
     if ! [ -x "$(command -v brew)" ]; then
-        info "Homebrew not installed. Installing."
         case "$(uname -s)" in
         Linux)
-            git clone --depth 1 https://github.com/Homebrew/brew "${HOME}"/.linuxbrew/Homebrew
+            local brew_repository="${HOME}/.linuxbrew/Homebrew"
+            if [ -x "${brew_repository}/bin/brew" ]; then
+                info "Using existing Homebrew at ${brew_repository}."
+            else
+                if [ -e "${brew_repository}" ] || [ -L "${brew_repository}" ]; then
+                    [ -d "${brew_repository}" ] || error "Homebrew path exists but is not a directory: ${brew_repository}"
+                    local repository_contents
+                    repository_contents="$(ls -A "${brew_repository}")"
+                    [ -z "${repository_contents}" ] || error "Homebrew directory exists but bin/brew is missing or not executable: ${brew_repository}. Inspect or move it aside before retrying; its contents have been left unchanged."
+                fi
+                info "Homebrew not installed. Installing."
+                git clone --depth 1 https://github.com/Homebrew/brew "${brew_repository}"
+            fi
             mkdir -p "${HOME}"/.linuxbrew/bin
-            ln -fs "${HOME}"/.linuxbrew/Homebrew/bin/brew "${HOME}"/.linuxbrew/bin
+            ln -fs "${brew_repository}/bin/brew" "${HOME}"/.linuxbrew/bin
             brew_env="$("${HOME}"/.linuxbrew/bin/brew shellenv)"
             eval "${brew_env}"
             ;;
         Darwin)
+            info "Homebrew not installed. Installing."
             brew_installer="$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
             /bin/bash -c "${brew_installer}"
             case "$(uname -m)" in
