@@ -13,6 +13,9 @@ brew "fzf"
 brew "jq"
 brew "parallel"
 
+brew "gh"
+brew "hf"
+
 brew "git-delta"
 brew "git-lfs"
 
